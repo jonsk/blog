@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://jonsk.github.io/blog/2015/07/16/20150716/index.html">
 <meta property="og:site_name" content="动力火锅的猫空间">
 <meta property="og:description" content="花了差不多快一个星期的时间才在github上建立起自己的博客，所以在这里记录下来，一些基础知识就省了，写的比较简单，不过建立过程的经验和关键操作的记录都有写下来。">
-<meta property="og:updated_time" content="2015-07-16T14:05:57.000Z">
+<meta property="og:updated_time" content="2015-07-16T14:07:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Hexo在Github上建立博客">
 <meta name="twitter:description" content="花了差不多快一个星期的时间才在github上建立起自己的博客，所以在这里记录下来，一些基础知识就省了，写的比较简单，不过建立过程的经验和关键操作的记录都有写下来。">
@@ -174,17 +174,17 @@ To https:<span class="comment">//github.com/jonsk/blog.git</span>
 INFO  Deploy done: git
 </code></pre><p>当然你可能看到一个由hexo提供的默认主题的blog，不过没有关系，至少我们已经完成了一些关键性的步骤。</p>
 <h3 id="0x06_编写自己的第一篇文章">0x06 编写自己的第一篇文章</h3><p>hexo中写文章很容易，只需要使用<code>hexo n + 文章名</code>即可，例如我通常以时间来作文件名哪么我可以使用下面的命令来建立一篇名为20150716的文章（事实上这个名字只是给系统使用的，真正的文件我们会在20150716.md中定义）：</p>
-<pre><code><span class="variable">$hexo</span> n <span class="number">20150716</span>
+<pre><code><span class="variable">$ </span>hexo n <span class="number">20150716</span>
 <span class="constant">INFO </span> <span class="constant">Created:</span> ~<span class="regexp">/hexo/source</span><span class="regexp">/_posts/</span><span class="number">20150716</span>.md
 </code></pre><p>文章建立完成后可以使用你顺便的编辑来对它进行编辑</p>
-<pre><code><span class="variable">$vi</span> ~<span class="regexp">/hexo/source</span><span class="regexp">/_posts/</span><span class="number">20150716</span>.md
+<pre><code><span class="variable">$ </span>vi ~<span class="regexp">/hexo/source</span><span class="regexp">/_posts/</span><span class="number">20150716</span>.md
 </code></pre><p>你可以看到以下内容：</p>
 <pre><code>title: 20150716
 date: 2015-07-16 20:51:03
 <span class="header">tags:
 ---</span>
 </code></pre><p>其中<code>title:</code>为你文章的真正名字，<code>date:</code>为文章建立的时间，<code>tags:</code>为标记，以<code>---</code>以下的部分则是你所编写的文章内容。事实上还有许多字段可以定义如：<code>categories:</code>文章分类，<code>layout:</code>等。<br>在所在内容编写完成后我们需要将编写的内容进行转换和上传，可以使用之前的命令<code>hexo d -g</code>命令来完成。</p>
-<pre><code><span class="label">$hexo</span> <span class="keyword">d</span> -<span class="keyword">g</span>
+<pre><code>$ hexo <span class="keyword">d</span> -<span class="keyword">g</span>
 </code></pre><p>至此我们完成了我们的第一篇文章的编写。</p>
 <p>markdown的语法可以参考<a href="http://ibruce.info/2013/11/26/markdown/" target="_blank" rel="external">这里</a></p>
   
