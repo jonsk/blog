@@ -23,7 +23,7 @@ Github，这个就不用介绍了吧，你能看到这篇文章估计也是知�
 0x00 关于Hexo和GithubHexo是一个基于node.js建立的博客框架，它提供一整套的解决方案，如博客主题，内容生成，提交等等功能，具体功能可以看它的官网。
 Github，这个就不用介绍了吧，你能看到这篇文章估计也是知道Github是什么：）。
 0x01 在Github上建立自己的页面首先你需要自己在github上注册，">
-<meta property="og:updated_time" content="2015-07-16T11:51:38.000Z">
+<meta property="og:updated_time" content="2015-07-16T11:54:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Hexo在Github上建立博客">
 <meta name="twitter:description" content="写的比较简单，主要是一些建立过程的经验，建议参照这个教程来建立。
@@ -118,8 +118,16 @@ Github，这个就不用介绍了吧，你能看到这篇文章估计也是知�
 <h3 id="0x02_建立本地主机环境">0x02 建立本地主机环境</h3><p>我使用的是Linux环境，因此本教程也是介绍的在Linux系统下建立环境，以下所介绍的所有命令除非特别说明否则均使用普通用户身份输入。</p>
 <p>首先安装node.js,即使你使用的是提供yum或是apt程序的Linux发行版也<strong>推荐</strong>使用下面的命令来进行安装：</p>
 <pre><code>`wget -qO- http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/creationix/nvm/master/install.<span class="keyword">sh</span> | <span class="keyword">sh</span>`
-</code></pre><p>运行结果如下：<br>      $ wget -qO- <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh<br>        =&gt; nvm is already installed in /home/jonsk/.nvm, trying to update using git<br>        =&gt;<br>    =&gt; Appending source string to /root/.bashrc<br>    =&gt; You currently have modules installed globally with <code>npm</code>. These will no<br>    =&gt; longer be linked to the active version of Node when you install a new node<br>    =&gt; with <code>nvm</code>; and they may (depending on how you construct your <code>$PATH</code>)<br>    =&gt; override the binaries of modules installed with <code>nvm</code>:</p>
-<pre><code>/home/jonsk/.nvm/v<span class="number">0</span>.<span class="number">10.40</span>/lib
+</code></pre><p>运行结果如下：</p>
+<pre><code><span class="status">=&gt;</span> nvm is already installed in /home/jonsk/.nvm, trying to update using git
+<span class="status">=&gt;</span>
+<span class="status">=&gt;</span> <span class="constant">Appending</span> source string to /root/.bashrc
+<span class="status">=&gt;</span> <span class="constant">You</span> currently have modules installed globally with <span class="string">`npm`</span>. <span class="constant">These</span> will no
+<span class="status">=&gt;</span> longer be linked to the active version of <span class="constant">Node</span> when you install a new node
+<span class="status">=&gt;</span> with <span class="string">`nvm`</span>; and they may (depending on how you construct your <span class="string">`$PATH`</span>)
+<span class="status">=&gt;</span> override the binaries of modules installed with <span class="string">`nvm`</span><span class="symbol">:</span>
+
+/home/jonsk/.nvm/v<span class="number">0</span>.<span class="number">10.40</span>/lib
 ├── git<span class="variable">@0</span>.<span class="number">1.5</span>
 ├── hexo-cli<span class="variable">@0</span>.<span class="number">1.7</span>
 <span class="status">
