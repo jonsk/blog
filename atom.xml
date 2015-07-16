@@ -5,7 +5,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2015-07-16T12:21:03.000Z</updated>
+  <updated>2015-07-16T12:26:34.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -20,8 +20,8 @@
     <link href="http://jonsk.github.io/blog/blog/2015/07/16/20150716/"/>
     <id>http://jonsk.github.io/blog/blog/2015/07/16/20150716/</id>
     <published>2015-07-16T02:42:48.000Z</published>
-    <updated>2015-07-16T12:21:03.000Z</updated>
-    <content type="html"><![CDATA[<p>写的比较简单，主要是一些建立过程的经验。</p>
+    <updated>2015-07-16T12:26:34.000Z</updated>
+    <content type="html"><![CDATA[<p>写的比较简单，主要是一些建立过程的经验和操作的记录。<br><a id="more"></a></p>
 <h3 id="0x00_关于Hexo和Github">0x00 关于Hexo和Github</h3><p>Hexo是一个基于node.js建立的博客框架，它提供一整套的解决方案，如博客主题，内容生成，提交等等功能，具体功能可以看它的<a href="https://hexo.io/" target="_blank" rel="external">官网</a>。</p>
 <p>Github，这个就不用介绍了吧，你能看到这篇文章估计也是知道Github是什么：）。</p>
 <h3 id="0x01_在Github上建立自己的页面">0x01 在Github上建立自己的页面</h3><p>首先你需要自己在github上注册，并上生成你自己的证书。随后就可以在github上建立自己的项目</p>
@@ -62,15 +62,16 @@
 </code></pre><p>如果需要预览效果可以使用<code>hexo s</code>命令来启动一个hexo自带的web服务器，用户可以通过访问<code>http://127.0.0.1:4000</code>这个地址来预览一下效果。</p>
 <pre><code><span class="title">hexo</span> s
 </code></pre><p>注：事实上可以在完成初始化后就直接使用<code>hexo s</code>命令来进行预览，<code>hexo g</code>只是在上传到github之前才需要做的工作。</p>
-<h3 id="0x04_配置hexo参数">0x04 配置hexo参数</h3><p>之所以将配置上传参数先列是因为网上有各种配置方法很容易理解错误，因此先对它进行说明。hexo的所有配置工作都是在<code>_config.yml</code>文件中完成的，而在这个配置文件中我们最关心的就是结尾的<code>deploy:</code>部分，事实上整个配置很简单，只需要更改以下三下参数<code>type</code>为git，<code>repository</code>为你项目的git地址，<code>branch</code>分支类型为gh-pages即可。</p>
+<h3 id="0x04_配置hexo上传参数">0x04 配置hexo上传参数</h3><p>之所以将配置上传参数列是因为网上有各种配置方法很容易理解错误，因此对它进行说明。hexo的所有配置工作都是在<code>_config.yml</code>文件中完成的，而在这个配置文件中我们最关心的就是结尾的<code>deploy:</code>部分，事实上整个配置很简单，只需要更改以下三下参数<code>type</code>为git，<code>repository</code>为你项目的git地址，<code>branch</code>分支类型为gh-pages即可。</p>
 <pre><code><span class="attribute">deploy</span>:
   <span class="attribute">type</span>: git
   <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/jonsk/blog.git</span>
   <span class="attribute">branch</span>: gh-pages
-</code></pre>]]></content>
+</code></pre><p><code>_config.yml</code>文件中的其它参数就都很简单了，网络上都已经解释的很详细了。</p>
+]]></content>
     <summary type="html">
-    <![CDATA[<p>写的比较简单，主要是一些建立过程的经验。</p>
-<h3 id="0x00_关于Hexo和Github">0x00 关于Hexo和Github</h3><p>Hexo是一个基于node.js建立的博客框架，它提供一整套的解决方案，如博客主题，内容生成，提交等等功能，具体功能]]>
+    <![CDATA[<p>写的比较简单，主要是一些建立过程的经验和操作的记录。<br>]]>
+    
     </summary>
     
   </entry>
