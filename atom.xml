@@ -5,7 +5,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2015-07-16T12:26:34.000Z</updated>
+  <updated>2015-07-16T12:34:38.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://jonsk.github.io/blog/blog/2015/07/16/20150716/"/>
     <id>http://jonsk.github.io/blog/blog/2015/07/16/20150716/</id>
     <published>2015-07-16T02:42:48.000Z</published>
-    <updated>2015-07-16T12:26:34.000Z</updated>
-    <content type="html"><![CDATA[<p>写的比较简单，主要是一些建立过程的经验和操作的记录。<br><a id="more"></a></p>
-<h3 id="0x00_关于Hexo和Github">0x00 关于Hexo和Github</h3><p>Hexo是一个基于node.js建立的博客框架，它提供一整套的解决方案，如博客主题，内容生成，提交等等功能，具体功能可以看它的<a href="https://hexo.io/" target="_blank" rel="external">官网</a>。</p>
+    <updated>2015-07-16T12:34:38.000Z</updated>
+    <content type="html"><![CDATA[<p>花了差不多快一个星期的时间才在github上建立起自己的博客，所以在这里记录下来，一些基础知识就省了，写的比较简单，不过建立过程的经验和关键操作的记录都有写下来。<br><a id="more"></a></p>
+<h3 id="0x00_关于Hexo和Github">0x00 关于Hexo和Github</h3><p>Hexo是一个基于node.js建立的博客框架，它提供一整套的解决方案，如博客主题，内容生成，提交等等功能，具体功能可以看它的<a href="https://hexo.io/" target="_blank" rel="external">官网</a>，记得在网页的语言中选择中文哦。</p>
 <p>Github，这个就不用介绍了吧，你能看到这篇文章估计也是知道Github是什么：）。</p>
 <h3 id="0x01_在Github上建立自己的页面">0x01 在Github上建立自己的页面</h3><p>首先你需要自己在github上注册，并上生成你自己的证书。随后就可以在github上建立自己的项目</p>
 <h3 id="0x02_建立本地主机环境">0x02 建立本地主机环境</h3><p>我使用的是Linux环境，因此本教程也是介绍的在Linux系统下建立环境，以下所介绍的所有命令除非特别说明否则均使用普通用户身份输入。</p>
@@ -68,9 +68,12 @@
   <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/jonsk/blog.git</span>
   <span class="attribute">branch</span>: gh-pages
 </code></pre><p><code>_config.yml</code>文件中的其它参数就都很简单了，网络上都已经解释的很详细了。</p>
+<h3 id="0x05_上传到github">0x05 上传到github</h3><p>在0x03中我们就做了一个工作即将初始化的文件转换为静态页面，如果你完成了这个<code>hexo g</code>命令并且配置好了自己github上的证书就可以使用<code>hexo d</code>命令来进行上传了。</p>
+<pre><code><span class="title">hexo</span> d
+</code></pre><p>或是使用<code>hexo d -g</code>命令将转换与上传工作一起完成</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>写的比较简单，主要是一些建立过程的经验和操作的记录。<br>]]>
+    <![CDATA[<p>花了差不多快一个星期的时间才在github上建立起自己的博客，所以在这里记录下来，一些基础知识就省了，写的比较简单，不过建立过程的经验和关键操作的记录都有写下来。<br>]]>
     
     </summary>
     
