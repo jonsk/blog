@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   
-  <title><![CDATA[动力火锅的博客]]></title>
-  <subtitle><![CDATA[混在国企的系统管理员]]></subtitle>
+  <title><![CDATA[动力火锅的猫空间]]></title>
+  
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2015-07-16T02:08:51.000Z</updated>
+  <updated>2015-07-16T02:15:12.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -17,14 +17,14 @@
   
   <entry>
     <title><![CDATA[新开始]]></title>
-    <link href="http://jonsk.github.io/blog/blog/2015/07/16/%E6%96%B0%E5%BC%80%E5%A7%8B/"/>
-    <id>http://jonsk.github.io/blog/blog/2015/07/16/新开始/</id>
-    <published>2015-07-16T09:28:02.000Z</published>
-    <updated>2015-07-16T02:08:51.000Z</updated>
-    <content type="html"><![CDATA[<p>花了几天的时间终于在github上建好了自己的博客，今后可以使用github来记录</p>
+    <link href="http://jonsk.github.io/blog/blog/2015/07/15/%E6%96%B0%E5%BC%80%E5%A7%8B/"/>
+    <id>http://jonsk.github.io/blog/blog/2015/07/15/新开始/</id>
+    <published>2015-07-15T09:28:02.000Z</published>
+    <updated>2015-07-16T02:15:12.000Z</updated>
+    <content type="html"><![CDATA[<p>第一篇博客记录，先留个抓印。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>花了几天的时间终于在github上建好了自己的博客，今后可以使用github来记录</p>
+    <![CDATA[<p>第一篇博客记录，先留个抓印。</p>
 ]]>
     </summary>
     
