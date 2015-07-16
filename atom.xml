@@ -5,7 +5,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2015-07-16T12:38:46.000Z</updated>
+  <updated>2015-07-16T13:01:07.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jonsk.github.io/blog/blog/2015/07/16/20150716/"/>
     <id>http://jonsk.github.io/blog/blog/2015/07/16/20150716/</id>
     <published>2015-07-16T02:42:48.000Z</published>
-    <updated>2015-07-16T12:38:46.000Z</updated>
+    <updated>2015-07-16T13:01:07.000Z</updated>
     <content type="html"><![CDATA[<p>花了差不多快一个星期的时间才在github上建立起自己的博客，所以在这里记录下来，一些基础知识就省了，写的比较简单，不过建立过程的经验和关键操作的记录都有写下来。<br><a id="more"></a></p>
 <h3 id="0x00_关于Hexo和Github">0x00 关于Hexo和Github</h3><p>Hexo是一个基于node.js建立的博客框架，它提供一整套的解决方案，如博客主题，内容生成，提交等等功能，具体功能可以看它的<a href="https://hexo.io/" target="_blank" rel="external">官网</a>，记得在网页的语言中选择中文哦。</p>
 <p>Github，这个就不用介绍了吧，你能看到这篇文章估计也是知道Github是什么：）。</p>
@@ -49,18 +49,19 @@
 <span class="status">
 =&gt;</span> <span class="constant">Close</span> and reopen your terminal to start using nvm
 </code></pre><p>安装完成nvmrgk后就可以使用<code>nvm install</code>来安装node.js的最新版本,或是使用下来的命令来安装node.js 0.10.40版本。</p>
-<pre><code><span class="tag">nvm</span> <span class="tag">install</span> 0<span class="class">.10</span><span class="class">.40</span>
+<pre><code>$ nvm <span class="keyword">install</span> <span class="number">0.10</span>.<span class="number">40</span>
 </code></pre><p>在安装完成后你将可以使用npm命令，如果系统提示没有找到npm命令则需要检查是否设置了正确的npm路径，通常安装完成后会提示使用<code>source ~/.bashrc</code>命令来更新环境变量，如果更新环境变量后还是无法找到npm则将下面的代码替换路径后加入到.bashrc文件,再次更新环境。</p>
 <pre><code><span class="built_in">export</span> NVM_DIR=<span class="string">"/home/jonsk/.nvm"</span>
 [ <span class="operator">-s</span> <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; . <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="comment"># This loads nvm</span>
 </code></pre><h3 id="0x03_建立本地hexo环境">0x03 建立本地hexo环境</h3><p>当npm可以使用时我们就完成了本地环境的安装,接下来我们就可以通过npm来安装hexo和相关的模块了。</p>
-<pre><code>$ npm <span class="keyword">install</span> -g hexo
+<pre><code>$ npm install -<span class="keyword">g</span> hexo
+$ npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span>
 </code></pre><p>使用以上命令来安装hexo，其中<code>-g</code>参数为全局安装，如果一切顺利，你将会安装好hexo，接下来将通过hexo来完成基本的配置。在你的系统中找一个合适的位置建立目录，我在这里使用的是~/hexo目录，在这个目录执行以下命令进行初始化。</p>
-<pre><code><span class="title">hexo</span> init 
+<pre><code><span class="variable">$ </span>hexo init 
 </code></pre><p>接下来将初始化的文件转换为静态文件，这些文件也是最终要上传到我们github上的。</p>
-<pre><code><span class="title">hexo</span> g
+<pre><code><span class="variable">$ </span>hexo g
 </code></pre><p>如果需要预览效果可以使用<code>hexo s</code>命令来启动一个hexo自带的web服务器，用户可以通过访问<code>http://127.0.0.1:4000</code>这个地址来预览一下效果。</p>
-<pre><code><span class="title">hexo</span> s
+<pre><code><span class="variable">$ </span>hexo s
 </code></pre><p>注：事实上可以在完成初始化后就直接使用<code>hexo s</code>命令来进行预览，<code>hexo g</code>只是在上传到github之前才需要做的工作。</p>
 <h3 id="0x04_配置hexo上传参数">0x04 配置hexo上传参数</h3><p>之所以将配置上传参数列是因为网上有各种配置方法很容易理解错误，因此对它进行说明。hexo的所有配置工作都是在<code>_config.yml</code>文件中完成的，而在这个配置文件中我们最关心的就是结尾的<code>deploy:</code>部分，事实上整个配置很简单，只需要更改以下三下参数<code>type</code>为git，<code>repository</code>为你项目的git地址，<code>branch</code>分支类型为gh-pages即可。</p>
 <pre><code><span class="attribute">deploy</span>:
@@ -68,8 +69,9 @@
   <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/jonsk/blog.git</span>
   <span class="attribute">branch</span>: gh-pages
 </code></pre><p><code>_config.yml</code>文件中的其它参数就都很简单了，网络上都已经解释的很详细了。</p>
+<p><strong>需要说明的是_config.yml文件中所有参数前面都需要空一格，例如上面例子中type: git这个命令中git与:之前就有一个空格，如果没有这个空格则hexo会提示出错。</strong></p>
 <h3 id="0x05_上传到github">0x05 上传到github</h3><p>在0x03中我们就做了一个工作即将初始化的文件转换为静态页面，如果你完成了这个<code>hexo g</code>命令并且配置好了自己github上的证书就可以使用<code>hexo d</code>命令来进行上传了。</p>
-<pre><code><span class="title">hexo</span> d
+<pre><code><span class="variable">$ </span>hexo d
 </code></pre><p>或是使用<code>hexo d -g</code>命令将转换与上传工作一起完成</p>
 <pre><code>$ hexo <span class="keyword">d</span> -<span class="keyword">g</span>
 </code></pre><p>在提示中输入用户名和密码并确认，如果验证通过则会将数据上传到github上。用户可以通过浏览器来查看自己的页面。</p>
@@ -89,7 +91,21 @@ To https:<span class="comment">//github.com/jonsk/blog.git</span>
    <span class="number">6828093</span>.<span class="class">.ec2d858</span>  master -&gt; gh-pages
 分支 master 设置为跟踪来自 https:<span class="comment">//github.com/jonsk/blog.git 的远程分支 gh-pages。</span>
 INFO  Deploy done: git
-</code></pre>]]></content>
+</code></pre><p>当然你可能看到一个由hexo提供的默认主题的blog，不过没有关系，至少我们已经完成了一些关键性的步骤。</p>
+<h3 id="0x06_编写自己的第一篇文章">0x06 编写自己的第一篇文章</h3><p>hexo中写文章很容易，只需要使用<code>hexo n + 文章名</code>即可，例如我通常以时间来作文件名哪么我可以使用下面的命令来建立一篇名为20150716的文章（事实上这个名字只是给系统使用的，真正的文件我们会在20150716.md中定义）：</p>
+<pre><code><span class="variable">$hexo</span> n <span class="number">20150716</span>
+<span class="constant">INFO </span> <span class="constant">Created:</span> ~<span class="regexp">/hexo/source</span><span class="regexp">/_posts/</span><span class="number">20150716</span>.md
+</code></pre><p>文章建立完成后可以使用你顺便的编辑来对它进行编辑</p>
+<pre><code><span class="variable">$vi</span> ~<span class="regexp">/hexo/source</span><span class="regexp">/_posts/</span><span class="number">20150716</span>.md
+</code></pre><p>你可以看到以下内容：</p>
+<pre><code>title: w
+date: 2015-07-16 20:51:03
+<span class="header">tags:
+---</span>
+</code></pre><p>其中<code>title:</code>为你文章的真正名字，<code>date:</code>为文章建立的时间，<code>tags:</code>为标记，以<code>---</code>以下的部分则是你所编写的文章内容。事实上还有许多字段可以定义如：<code>categories:</code>文章分类，<code>layout:</code>等。<br>在所在内容编写完成后我们需要将编写的内容进行转换和上传，可以使用之前的命令<code>hexo d -g</code>命令来完成。</p>
+<pre><code><span class="label">$hexo</span> <span class="keyword">d</span> -<span class="keyword">g</span>
+</code></pre><p>至此我们完成了我们的第一篇文章的编写。</p>
+]]></content>
     <summary type="html">
     <![CDATA[<p>花了差不多快一个星期的时间才在github上建立起自己的博客，所以在这里记录下来，一些基础知识就省了，写的比较简单，不过建立过程的经验和关键操作的记录都有写下来。<br>]]>
     
