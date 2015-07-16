@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://jonsk.github.io/blog/2015/07/16/20150716/index.html">
 <meta property="og:site_name" content="动力火锅的猫空间">
 <meta property="og:description" content="花了差不多快一个星期的时间才在github上建立起自己的博客，所以在这里记录下来，一些基础知识就省了，写的比较简单，不过建立过程的经验和关键操作的记录都有写下来。">
-<meta property="og:updated_time" content="2015-07-16T12:34:38.000Z">
+<meta property="og:updated_time" content="2015-07-16T12:38:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Hexo在Github上建立博客">
 <meta name="twitter:description" content="花了差不多快一个星期的时间才在github上建立起自己的博客，所以在这里记录下来，一些基础知识就省了，写的比较简单，不过建立过程的经验和关键操作的记录都有写下来。">
@@ -152,7 +152,25 @@
 <h3 id="0x05_上传到github">0x05 上传到github</h3><p>在0x03中我们就做了一个工作即将初始化的文件转换为静态页面，如果你完成了这个<code>hexo g</code>命令并且配置好了自己github上的证书就可以使用<code>hexo d</code>命令来进行上传了。</p>
 <pre><code><span class="title">hexo</span> d
 </code></pre><p>或是使用<code>hexo d -g</code>命令将转换与上传工作一起完成</p>
-  
+<pre><code>$ hexo <span class="keyword">d</span> -<span class="keyword">g</span>
+</code></pre><p>在提示中输入用户名和密码并确认，如果验证通过则会将数据上传到github上。用户可以通过浏览器来查看自己的页面。</p>
+<pre><code>INFO  Files loaded <span class="keyword">in</span> <span class="number">1.19</span> s
+INFO  Generated: <span class="number">2015</span>/<span class="number">07</span>/<span class="number">16</span>/<span class="number">20150716</span>/index<span class="class">.html</span>
+INFO  Generated: atom<span class="class">.xml</span>
+INFO  Generated: sitemap<span class="class">.xml</span>
+INFO  <span class="number">3</span> files generated <span class="keyword">in</span> <span class="number">191</span> ms
+INFO  Deploying: git
+INFO  Clearing <span class="class">.deploy</span> folder...
+INFO  Copying files from public folder...
+[master ec2d858] Site updated: <span class="number">2015</span>-<span class="number">07</span>-<span class="number">16</span> <span class="number">20</span>:<span class="number">34</span>:<span class="number">47</span>
+ <span class="number">4</span> files changed, <span class="number">21</span> <span class="function"><span class="title">insertions</span><span class="params">(+)</span></span>, <span class="number">15</span> <span class="function"><span class="title">deletions</span><span class="params">(-)</span></span>
+Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>:  #输入github的用户名
+Password <span class="keyword">for</span> <span class="string">'https://jonsk@github.com'</span>: #输入密码
+To https:<span class="comment">//github.com/jonsk/blog.git</span>
+   <span class="number">6828093</span>.<span class="class">.ec2d858</span>  master -&gt; gh-pages
+分支 master 设置为跟踪来自 https:<span class="comment">//github.com/jonsk/blog.git 的远程分支 gh-pages。</span>
+INFO  Deploy done: git
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
