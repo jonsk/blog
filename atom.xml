@@ -5,7 +5,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2015-07-16T11:26:00.000Z</updated>
+  <updated>2015-07-16T11:28:09.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jonsk.github.io/blog/blog/2015/07/16/20150716/"/>
     <id>http://jonsk.github.io/blog/blog/2015/07/16/20150716/</id>
     <published>2015-07-16T02:42:48.000Z</published>
-    <updated>2015-07-16T11:26:00.000Z</updated>
+    <updated>2015-07-16T11:28:09.000Z</updated>
     <content type="html"><![CDATA[<p>写的比较简单，主要是一些建立过程的经验，建议参照这个<a href="http://blog.fens.me/hexo-blog-github/" target="_blank" rel="external">教程</a>来建立。</p>
 <h3 id="0x00_关于Hexo和Github">0x00 关于Hexo和Github</h3><p>Hexo是一个基于node.js建立的博客框架，它提供一整套的解决方案，如博客主题，内容生成，提交等等功能，具体功能可以看它的<a href="https://hexo.io/" target="_blank" rel="external">官网</a>。</p>
 <p>Github，这个就不用介绍了吧，你能看到这篇文章估计也是知道Github是什么：）。</p>
@@ -33,6 +33,7 @@
 <p>未完待续</p>
 <!-- tps://raw.github.co -->
 <p><code>w</code>wtps://raw.github.co</p>
+<p>『% codeblock [title] [lang:language] [url] [link text] %』<br>  code snippet<br>『% endcodeblock %』</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>写的比较简单，主要是一些建立过程的经验，建议参照这个<a href="http://blog.fens.me/hexo-blog-github/" target="_blank" rel="external">教程</a>来建立。</p>
