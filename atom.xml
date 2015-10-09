@@ -5,7 +5,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2015-10-09T04:03:12.000Z</updated>
+  <updated>2015-10-09T04:09:38.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[20151009]]></title>
+    <title><![CDATA[定制Debian版的树莓派系统]]></title>
     <link href="http://jonsk.github.io/blog/blog/2015/10/09/20151009/"/>
     <id>http://jonsk.github.io/blog/blog/2015/10/09/20151009/</id>
     <published>2015-10-09T04:02:30.000Z</published>
-    <updated>2015-10-09T04:03:12.000Z</updated>
+    <updated>2015-10-09T04:09:38.000Z</updated>
     <content type="html"><![CDATA[<h1 id="定制Debian版的树莓派系统">定制Debian版的树莓派系统</h1><hr>
 <h2 id="0x00_为什么需要定制树莓派的系统">0x00 为什么需要定制树莓派的系统</h2><p>在树莓派的<a href="https://www.raspberrypi.org" target="_blank" rel="external">官方网站上</a>提供了多个的系统镜像，但是这些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系统是Debian所以定制也是基于Debian。</p>
 <h2 id="0x01_需要的材料及工具">0x01 需要的材料及工具</h2><p>材料其实很简单，只需要一个树莓派和一个8G的SD卡，当然4G的也可以，只要官方提供的镜像能写入就可以了，除此之外还需要一个SD卡的读卡器用于镜像文件的写入，以及后继的操作。</p>
