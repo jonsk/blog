@@ -94,8 +94,7 @@
 </header>
     <div class="article-content">
         
-        <h1 id="定制Debian版的树莓派系统">定制Debian版的树莓派系统</h1><hr>
-<h2 id="0x00_为什么需要定制树莓派的系统">0x00 为什么需要定制树莓派的系统</h2><p>在树莓派的<a href="https://www.raspberrypi.org" target="_blank" rel="external">官方网站上</a>提供了多个的系统镜像，但是这些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系统是Debian所以定制也是基于Debian。</p>
+        <h2 id="0x00_为什么需要定制树莓派的系统">0x00 为什么需要定制树莓派的系统</h2><p>在树莓派的<a href="https://www.raspberrypi.org" target="_blank" rel="external">官方网站上</a>提供了多个的系统镜像，但是这些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系统是Debian所以定制也是基于Debian。</p>
 <h2 id="0x01_需要的材料及工具">0x01 需要的材料及工具</h2><p>材料其实很简单，只需要一个树莓派和一个8G的SD卡，当然4G的也可以，只要官方提供的镜像能写入就可以了，除此之外还需要一个SD卡的读卡器用于镜像文件的写入，以及后继的操作。</p>
 <p>SD卡的型号可以参考树莓派官方提供的一个<a href="http://elinux.org/RPi_SD_cards" target="_blank" rel="external">列表</a></p>
 <p>工具则需要下载<a href="http://software.opensuse.org/package/imagewriter" target="_blank" rel="external">ImageWriter</a>，这个是树莓派官方推荐的Windows下镜像写入工具，以及官方提供的Raspbian镜像，需要注意的是Raspbian镜像有两个版本，分别是Jessie和Wheezy，因为只是过渡，所以无论下载哪一个都是可以的。本文中下载的是Jessiet版本，<a href="http://212.187.212.73/bt/dffe8144ecd9af3961fdf142e39794e038f1cfc5/data/2015-09-24-raspbian-jessie.zip" target="_blank" rel="external">下载链接</a>。</p>
@@ -184,7 +183,7 @@ wpa-<span class="keyword">conf</span> /etc/wpa_supplicant/wpa_supplicant.<span c
 <span class="preprocessor"># umount /new_debian/sys </span>
 <span class="preprocessor"># umount /new_debian/run </span>
 </code></pre><p>至此整个系统建立完成，接下来需要对SD卡片进行系统替换。这里需要一台Linux的主机来进行操作。</p>
-<h2 id="0x04_替换系统">0x04 替换系统</h2><p>将SD卡接到Linux主机上，保证Linux主机能挂载SD卡上的分区即可</p>
+<h2 id="0x05_替换系统">0x05 替换系统</h2><p>将SD卡接到Linux主机上，保证Linux主机能挂载SD卡上的分区即可</p>
 <pre><code><span class="comment"># mount /dev/sdb2 /mnt</span>
 <span class="comment"># cd /mnt</span>
 <span class="comment"># ls </span>
