@@ -5,7 +5,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2015-10-09T07:13:11.000Z</updated>
+  <updated>2015-10-09T07:16:26.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -20,8 +20,8 @@
     <link href="http://jonsk.github.io/blog/blog/2015/10/09/20151009/"/>
     <id>http://jonsk.github.io/blog/blog/2015/10/09/20151009/</id>
     <published>2015-10-09T04:02:30.000Z</published>
-    <updated>2015-10-09T07:13:11.000Z</updated>
-    <content type="html"><![CDATA[<p>在树莓派的<a href="https://www.raspberrypi.org" target="_blank" rel="external">官方网站上</a>提供了多个的系统镜像，但是这&gt;些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的<br>空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系<br>统是Debian所以定制也是基于Debian。<br><a id="more"></a></p>
+    <updated>2015-10-09T07:16:26.000Z</updated>
+    <content type="html"><![CDATA[<p>在树莓派的<a href="https://www.raspberrypi.org" target="_blank" rel="external">官方网站上</a>提供了多个的系统镜像，但是这些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系统是Debian所以定制也是基于Debian。<br><a id="more"></a></p>
 <h2 id="0x00_需要的材料及工具">0x00 需要的材料及工具</h2><p>材料其实很简单，只需要一个树莓派和一个8G的SD卡，当然4G的也可以，只要官方提供的镜像能写入就可以了，除此之外还需要一个SD卡的读卡器用于镜像文件的写入，以及后继的操作。</p>
 <p>SD卡的型号可以参考树莓派官方提供的一个<a href="http://elinux.org/RPi_SD_cards" target="_blank" rel="external">列表</a></p>
 <p>工具则需要下载<a href="http://software.opensuse.org/package/imagewriter" target="_blank" rel="external">ImageWriter</a>，这个是树莓派官方推荐的Windows下镜像写入工具，以及官方提供的Raspbian镜像，需要注意的是Raspbian镜像有两个版本，分别是Jessie和Wheezy，因为只是过渡，所以无论下载哪一个都是可以的。本文中下载的是Jessiet版本，<a href="http://212.187.212.73/bt/dffe8144ecd9af3961fdf142e39794e038f1cfc5/data/2015-09-24-raspbian-jessie.zip" target="_blank" rel="external">下载链接</a>。</p>
@@ -126,7 +126,7 @@ sys  tmp  usr  <span class="keyword">var</span>
 <p>可以使用du来查看一下空间使用情况，通常一个最小化的系统加上openssh等工具只会占用约400MB左右的空间。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>在树莓派的<a href="https://www.raspberrypi.org">官方网站上</a>提供了多个的系统镜像，但是这&gt;些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的<br>空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系<br>统是Debian所以定制也是基于Debian。<br>]]>
+    <![CDATA[<p>在树莓派的<a href="https://www.raspberrypi.org">官方网站上</a>提供了多个的系统镜像，但是这些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系统是Debian所以定制也是基于Debian。<br>]]>
     
     </summary>
     
