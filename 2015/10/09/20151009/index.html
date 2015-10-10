@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://jonsk.github.io/blog/2015/10/09/20151009/index.html">
 <meta property="og:site_name" content="动力火锅的猫空间">
 <meta property="og:description" content="在树莓派的官方网站上提供了多个的系统镜像，但是这些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系统是Debian所以定制也是基于Debian。">
-<meta property="og:updated_time" content="2015-10-09T07:16:26.000Z">
+<meta property="og:updated_time" content="2015-10-10T06:57:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="定制Debian版的树莓派系统">
 <meta name="twitter:description" content="在树莓派的官方网站上提供了多个的系统镜像，但是这些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系统是Debian所以定制也是基于Debian。">
@@ -107,7 +107,7 @@
 <p><strong>Jessiet版本有1.2G，而Wheezy只有990MB，如果空间小可以只下载Wheezy版本。</strong></p>
 <h2 id="0x01_写入镜像">0x01 写入镜像</h2><p>安装好之前下载的ImageWriter，然后将下载的zip镜像文件解压，并在电脑上接好读卡器和SD卡。</p>
 <p>使用ImageWriter打开解压的镜像文件，并<strong>正确</strong>选择SD卡的盘符位置，然后选择Write进行写入。</p>
-<h2 id="0x02_生成最小系统">0x02 生成最小系统</h2><p>将写入好的卡片插入到树莓派中，然后接连网线，上电，网络设备一定要支持DHCP分配，因此最好是接到路由器上，然后开始等待，第一次启动时需要生成SSH证书，因此需要一段时间，估计等个5分钟左右就可以在路由器的DHCO客户列表中看到树莓派的身影了，这时就可以使用SSH工具连接树莓派的IP，系统默认会启动SSH服务。用户名是<code>pi</code>,密码为<code>raspberry</code>，进入后</p>
+<h2 id="0x02_生成最小系统">0x02 生成最小系统</h2><p>将写入好的卡片插入到树莓派中，然后接连网线，上电，网络设备一定要支持DHCP分配，因此最好是接到路由器上，然后开始等待，第一次启动时需要生成SSH证书，因此需要一段时间，估计等个5分钟左右就可以在路由器的DHCO客户列表中看到树莓派的身影了，这时就可以使用SSH工具连接树莓派的IP，系统默认会启动SSH服务。用户名是<code>raspberry</code>,密码为<code>pi</code>，进入后</p>
 <p>登录完成后使用<code>raspi-config</code>命令对SD卡进行扩容，由于镜像默认的大小是4G,因此写入后的SD卡也只有4G大小，需要对其进行扩容，以便使用所有空间。</p>
 <pre><code><span class="preprocessor"># raspi-config</span>
 </code></pre><p>选择<code>Expand Filesystem</code>选项并确认就行了。</p>
