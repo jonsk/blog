@@ -244,12 +244,12 @@ sys  tmp  usr  <span class="keyword">var</span>
   </entry>
   
   <entry>
-    <title><![CDATA[20150916]]></title>
+    <title><![CDATA[Ngaios安装指南]]></title>
     <link href="http://jonsk.github.io/blog/blog/2015/09/16/20150916/"/>
     <id>http://jonsk.github.io/blog/blog/2015/09/16/20150916/</id>
     <published>2015-09-16T06:22:26.000Z</published>
-    <updated>2016-03-21T06:26:12.000Z</updated>
-    <content type="html"><![CDATA[<p>机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br><a id="more"></a></p>
+    <updated>2016-03-21T06:28:10.000Z</updated>
+    <content type="html"><![CDATA[<p>机房的监控一直以来都是一件较为重要的事，在公司搬家后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br><a id="more"></a></p>
 <h1 id="Ngaios安装指南">Ngaios安装指南</h1><h2 id="0x00_关于Nagios">0x00 关于Nagios</h2><p>Nagios是一款开源的免费网络监视工具，通过它可以对操作系统、交换机、路由器、打印机等设备进行监控，并在出现问题时通过页面展式出来或是通知短信和邮件来用户用。</p>
 <p>Nagios 可以监控的功能有：</p>
 <ul>
@@ -292,7 +292,7 @@ sys  tmp  usr  <span class="keyword">var</span>
 </code></pre><p>重启动之后就可以使用WEB页面来访问nagios了，默认的用户名和密码为之前设置的用户名和密码</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br>]]>
+    <![CDATA[<p>机房的监控一直以来都是一件较为重要的事，在公司搬家后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br>]]>
     
     </summary>
     
