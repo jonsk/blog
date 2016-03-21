@@ -5,7 +5,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2016-03-21T06:23:46.000Z</updated>
+  <updated>2016-03-21T06:20:51.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -14,61 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[201507-16]]></title>
-    <link href="http://jonsk.github.io/blog/blog/2016/03/21/20150716/"/>
-    <id>http://jonsk.github.io/blog/blog/2016/03/21/20150716/</id>
-    <published>2016-03-21T06:22:26.000Z</published>
-    <updated>2016-03-21T06:23:46.000Z</updated>
-    <content type="html"><![CDATA[<p>机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br><a id="more"></a></p>
-<h1 id="Ngaios安装指南">Ngaios安装指南</h1><h2 id="0x00_关于Nagios">0x00 关于Nagios</h2><p>Nagios是一款开源的免费网络监视工具，通过它可以对操作系统、交换机、路由器、打印机等设备进行监控，并在出现问题时通过页面展式出来或是通知短信和邮件来用户用。</p>
-<p>Nagios 可以监控的功能有：</p>
-<ul>
-<li>监控网络服务（SMTP、POP3、HTTP、NNTP、PING等）；</li>
-<li>监控主机资源（处理器负荷、磁盘利用率等）；</li>
-<li>监控打印机的使用情况；</li>
-<li>可以通过WEB界面用于查看当前的网络状态、通知和故障历史、日志文件等；</li>
-</ul>
-<p>我这里就写了些常用的，其它还有其它功能，有兴趣可以去它的<a href="https://www.nagios.org/" target="_blank" rel="external">网站</a>上看看</p>
-<h2 id="0x01_准备工作">0x01 准备工作</h2><p>Nagios的安装需要编译环境、WEB服务器以及一些关系库，如libgd2-xpm-dev等。</p>
-<pre><code># apt-<span class="built_in">get</span> install apache libgd2-xpm-<span class="built_in">dev</span> build-essential
-</code></pre><p>随后下载Nagios的源代码以及它的插件。</p>
-<pre><code><span class="preprocessor"># wget https:<span class="comment">//assets.nagios.com/downloads/nagioscore/releases/nagios-4.1.0rc2.tar.gz</span></span>
-<span class="preprocessor"># wget wget http:<span class="comment">//nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz</span></span>
-</code></pre><p>建立Nagios的使用帐号和组</p>
-<pre><code><span class="preprocessor"># useradd -m nagios</span>
-<span class="preprocessor"># passwd nagios</span>
-<span class="preprocessor"># groupadd nagcmd</span>
-<span class="preprocessor"># usermod -a -G nagcmd nagios</span>
-<span class="preprocessor"># usermod -a -G nagcmd www-data</span>
-</code></pre><h2 id="0x02_开始安装">0x02 开始安装</h2><p>首先解压源代码，并进入到源码目录中：</p>
-<pre><code><span class="preprocessor"># tar xzf nagios-4.1.0rc2.tar.gz</span>
-<span class="preprocessor"># cd nagios-4.1.0rc2/</span>
-</code></pre><p>配置Nagios，通过—with-command-group参数来指定Nagios运行时所使用的组，另外我通常还会通过—prefix参数来指定安装目录。</p>
-<pre><code><span class="comment">#</span> <span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">command</span><span class="literal">-</span><span class="comment">group=nagcmd</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/usr/local/Nagios</span>
-</code></pre><p>开始编译吧。</p>
-<pre><code><span class="preprocessor"># make all</span>
-</code></pre><p>安装。</p>
-<pre><code><span class="preprocessor"># make install</span>
-<span class="preprocessor"># make install-init</span>
-<span class="preprocessor"># make install-config</span>
-<span class="preprocessor"># make install-commandmode</span>
-<span class="preprocessor"># make install-webconf</span>
-</code></pre><p>安装Nagios的Apache配置文件。</p>
-<pre><code># <span class="regexp">/usr/</span>bin<span class="regexp">/install -c -m 644 sample-config/</span>httpd.conf <span class="regexp">/etc/</span>apache2<span class="regexp">/sites-enabled/</span>nagios.conf
-</code></pre><p>设置nagiosadmin帐号的密码。</p>
-<pre><code># htpasswd -c <span class="regexp">/usr/</span>local<span class="regexp">/nagios/</span>etc<span class="regexp">/htpasswd.users nagiosadmin</span>
-</code></pre><p>重新启动Apache服务器,ubuntu可以通过server命令来重启动apache,但是我还是习惯直接使用脚本来操作。</p>
-<pre><code><span class="preprocessor"># /etc/init.d/apache2 restart</span>
-</code></pre><p>重启动之后就可以使用WEB页面来访问nagios了，默认的用户名和密码为之前设置的用户名和密码</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br>]]>
-    
-    </summary>
-    
-  </entry>
   
   <entry>
     <title><![CDATA[ettercap 编译指南]]></title>
@@ -293,6 +238,61 @@ sys  tmp  usr  <span class="keyword">var</span>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>在树莓派的<a href="https://www.raspberrypi.org">官方网站上</a>提供了多个的系统镜像，但是这些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系统是Debian所以定制也是基于Debian。<br>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[20150916]]></title>
+    <link href="http://jonsk.github.io/blog/blog/2015/09/16/20150916/"/>
+    <id>http://jonsk.github.io/blog/blog/2015/09/16/20150916/</id>
+    <published>2015-09-16T06:22:26.000Z</published>
+    <updated>2016-03-21T06:26:12.000Z</updated>
+    <content type="html"><![CDATA[<p>机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br><a id="more"></a></p>
+<h1 id="Ngaios安装指南">Ngaios安装指南</h1><h2 id="0x00_关于Nagios">0x00 关于Nagios</h2><p>Nagios是一款开源的免费网络监视工具，通过它可以对操作系统、交换机、路由器、打印机等设备进行监控，并在出现问题时通过页面展式出来或是通知短信和邮件来用户用。</p>
+<p>Nagios 可以监控的功能有：</p>
+<ul>
+<li>监控网络服务（SMTP、POP3、HTTP、NNTP、PING等）；</li>
+<li>监控主机资源（处理器负荷、磁盘利用率等）；</li>
+<li>监控打印机的使用情况；</li>
+<li>可以通过WEB界面用于查看当前的网络状态、通知和故障历史、日志文件等；</li>
+</ul>
+<p>我这里就写了些常用的，其它还有其它功能，有兴趣可以去它的<a href="https://www.nagios.org/" target="_blank" rel="external">网站</a>上看看</p>
+<h2 id="0x01_准备工作">0x01 准备工作</h2><p>Nagios的安装需要编译环境、WEB服务器以及一些关系库，如libgd2-xpm-dev等。</p>
+<pre><code># apt-<span class="built_in">get</span> install apache libgd2-xpm-<span class="built_in">dev</span> build-essential
+</code></pre><p>随后下载Nagios的源代码以及它的插件。</p>
+<pre><code><span class="preprocessor"># wget https:<span class="comment">//assets.nagios.com/downloads/nagioscore/releases/nagios-4.1.0rc2.tar.gz</span></span>
+<span class="preprocessor"># wget wget http:<span class="comment">//nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz</span></span>
+</code></pre><p>建立Nagios的使用帐号和组</p>
+<pre><code><span class="preprocessor"># useradd -m nagios</span>
+<span class="preprocessor"># passwd nagios</span>
+<span class="preprocessor"># groupadd nagcmd</span>
+<span class="preprocessor"># usermod -a -G nagcmd nagios</span>
+<span class="preprocessor"># usermod -a -G nagcmd www-data</span>
+</code></pre><h2 id="0x02_开始安装">0x02 开始安装</h2><p>首先解压源代码，并进入到源码目录中：</p>
+<pre><code><span class="preprocessor"># tar xzf nagios-4.1.0rc2.tar.gz</span>
+<span class="preprocessor"># cd nagios-4.1.0rc2/</span>
+</code></pre><p>配置Nagios，通过—with-command-group参数来指定Nagios运行时所使用的组，另外我通常还会通过—prefix参数来指定安装目录。</p>
+<pre><code><span class="comment">#</span> <span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">command</span><span class="literal">-</span><span class="comment">group=nagcmd</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/usr/local/Nagios</span>
+</code></pre><p>开始编译吧。</p>
+<pre><code><span class="preprocessor"># make all</span>
+</code></pre><p>安装。</p>
+<pre><code><span class="preprocessor"># make install</span>
+<span class="preprocessor"># make install-init</span>
+<span class="preprocessor"># make install-config</span>
+<span class="preprocessor"># make install-commandmode</span>
+<span class="preprocessor"># make install-webconf</span>
+</code></pre><p>安装Nagios的Apache配置文件。</p>
+<pre><code># <span class="regexp">/usr/</span>bin<span class="regexp">/install -c -m 644 sample-config/</span>httpd.conf <span class="regexp">/etc/</span>apache2<span class="regexp">/sites-enabled/</span>nagios.conf
+</code></pre><p>设置nagiosadmin帐号的密码。</p>
+<pre><code># htpasswd -c <span class="regexp">/usr/</span>local<span class="regexp">/nagios/</span>etc<span class="regexp">/htpasswd.users nagiosadmin</span>
+</code></pre><p>重新启动Apache服务器,ubuntu可以通过server命令来重启动apache,但是我还是习惯直接使用脚本来操作。</p>
+<pre><code><span class="preprocessor"># /etc/init.d/apache2 restart</span>
+</code></pre><p>重启动之后就可以使用WEB页面来访问nagios了，默认的用户名和密码为之前设置的用户名和密码</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br>]]>
     
     </summary>
     
