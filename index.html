@@ -94,107 +94,12 @@
 </header>
     <div class="article-content">
         
-        <p>之前编译了一个ettercap程序，但是在运行的过程中经常会莫名奇妙的退出，并提示开启DEBUG模式进行排错。随后仔细看了一下版本后决定将ettercap升级到最新的版本0.8.2，并且不启用GTK的图形界面。</p>
-<p><strong>ettercap</strong>在编译时会默认会启用图形界面的支持，而图型界面则是通过GTK2来支持，如果安装了GTK2但是没有设置<em>GTK_BUILD_TYP</em>则会以cmake时提示：</p>
-<pre><code>-<span class="ruby">- <span class="constant">No</span> <span class="constant">GTK_BUILD_TYPE</span> <span class="keyword">defined</span>, default is <span class="constant">GTK2</span>
-</span>-<span class="ruby">- <span class="constant">Found</span> <span class="constant">GTK2_GTK</span><span class="symbol">:</span> /usr/lib64/libgtk-x11-<span class="number">2.0</span>.so</span>
-</code></pre><p>如果在系统中没有安装GTK2，则会出现以下的编译错误：</p>
-<pre><code>[ <span class="number">13</span>%] Building C object src<span class="regexp">/interfaces/</span>CMakeFiles<span class="regexp">/ec_interfaces.dir/</span>gtk/ec_gtk.c.o
-<span class="regexp">/root/</span>tmp<span class="regexp">/ettercap-0.8.2/</span>src<span class="regexp">/interfaces/</span>gtk/ec_gtk.<span class="string">c:</span> In function ‘gtkui_combo_enter’:
-<span class="regexp">/root/</span>tmp<span class="regexp">/ettercap-0.8.2/</span>src<span class="regexp">/interfaces/</span>gtk/ec_gtk.<span class="string">c:</span><span class="number">1567</span>: 错误：‘GDK_KEY_Return’ 未声明 ( 在此函数内第一次使用)
-<span class="regexp">/root/</span>tmp<span class="regexp">/ettercap-0.8.2/</span>src<span class="regexp">/interfaces/</span>gtk/ec_gtk.<span class="string">c:</span><span class="number">1567</span>: 错误：(即使在一个函数内多次出现 ，每个未声明的标识符在其
-<span class="regexp">/root/</span>tmp<span class="regexp">/ettercap-0.8.2/</span>src<span class="regexp">/interfaces/</span>gtk/ec_gtk.<span class="string">c:</span><span class="number">1567</span>: 错误：所在的函数内只报告一次。)
-make[<span class="number">2</span>]: *** [src<span class="regexp">/interfaces/</span>CMakeFiles<span class="regexp">/ec_interfaces.dir/</span>gtk/ec_gtk.c.o] 错误 <span class="number">1</span>
-make[<span class="number">1</span>]: *** [src<span class="regexp">/interfaces/</span>CMakeFiles<span class="regexp">/ec_interfaces.dir/</span>all] 错误 <span class="number">2</span>
-<span class="string">make:</span> *** [all] 错误 <span class="number">2</span>
-</code></pre><p>其实对于多数只使用控制台来管理服务器的管理员来说，完全不需要GTK这种图型界面的支持，因此我们只需要简单的在ettercap的编译过程中禁止GTK就可以：</p>
-<pre><code><span class="keyword">cmake</span> -D ENABLE_GTK=<span class="literal">OFF</span> ../
-</code></pre><p>其中ENABLE_GTK=OFF参数就完成对GTK的禁止。</p>
-<p>CMake是一个跨平台的安装，它和以往Linux程序所带的的configure确实不太一样，以往使用./configure —help就可以看到各种配置参数，但是cmake却不行，不过cmake提供了很好的帮助，用户需要使用cmake ../ —help来查看各种可以支持的参数：</p>
-<pre><code>#cmake ../ --help
-Usage
-
-cmake [options] &lt;path-<span class="keyword">to</span>-source&gt;
-cmake [options] &lt;path-<span class="keyword">to</span>-existing-build&gt;
-
-Specify a source directory <span class="keyword">to</span> (re-)generate a build system <span class="keyword">for</span> it <span class="keyword">in</span> the
-current working directory.  Specify an existing build directory <span class="keyword">to</span>
-re-generate its build system.
-
-Options
-  -C &lt;initial-cache&gt;           = Pre-load a script <span class="keyword">to</span> populate the cache.
-  -D &lt;var&gt;[:&lt;<span class="class"><span class="keyword">type</span>&gt;]</span>=&lt;value&gt;    = Create a cmake cache entry.
-  -U &lt;globbing_expr&gt;           = Remove matching entries from CMake cache.
-  -G &lt;generator-name&gt;          = Specify a build system generator.
-  -T &lt;toolset-name&gt;            = Specify toolset name <span class="keyword">if</span> supported by
-                                 generator.
-  -A &lt;platform-name&gt;           = Specify platform name <span class="keyword">if</span> supported by
-                                 generator.
-  -Wno-dev                     = Suppress developer warnings.
-  -Wdev                        = Enable developer warnings.
-  -E                           = CMake command mode.
-  -L[A][H]                     = List non-advanced cached variables.
-  --build &lt;dir&gt;                = Build a CMake-generated project binary tree.
-  -N                           = View mode only.
-  -P &lt;file&gt;                    = Process script mode.
-  --find-package               = Run <span class="keyword">in</span> pkg-config like mode.
-  --graphviz=[file]            = Generate graphviz <span class="keyword">of</span> dependencies, see
-                                 CMakeGraphVizOptions.cmake <span class="keyword">for</span> more.
-  --system-information [file]  = Dump information about this system.
-  --debug-trycompile           = Do not delete the try_compile build tree.
-                                 Only useful on one try_compile at a time.
-  --debug-output               = Put cmake <span class="keyword">in</span> a debug mode.
-  --trace                      = Put cmake <span class="keyword">in</span> trace mode.
-  --warn-uninitialized         = Warn about uninitialized values.
-  --warn-unused-vars           = Warn about unused variables.
-  --no-warn-unused-cli         = Don't warn about command line options.
-  --check-system-vars          = Find problems <span class="keyword">with</span> variable usage <span class="keyword">in</span> system
-                                 files.
-  --help,-help,-usage,-h,-H,/? = Print usage information <span class="keyword">and</span> exit.
-  --version,-version,/V <span class="annotation">[&lt;f&gt;]</span>  = Print version number <span class="keyword">and</span> exit.
-  --help-full <span class="annotation">[&lt;f&gt;]</span>            = Print all help manuals <span class="keyword">and</span> exit.
-  --help-manual &lt;man&gt; <span class="annotation">[&lt;f&gt;]</span>    = Print one help manual <span class="keyword">and</span> exit.
-  --help-manual-list <span class="annotation">[&lt;f&gt;]</span>     = List help manuals available <span class="keyword">and</span> exit.
-  --help-command &lt;cmd&gt; <span class="annotation">[&lt;f&gt;]</span>   = Print help <span class="keyword">for</span> one command <span class="keyword">and</span> exit.
-  --help-command-list <span class="annotation">[&lt;f&gt;]</span>    = List commands <span class="keyword">with</span> help available <span class="keyword">and</span> exit.
-  --help-commands <span class="annotation">[&lt;f&gt;]</span>        = Print cmake-commands manual <span class="keyword">and</span> exit.
-  --help-<span class="keyword">module</span> &lt;mod&gt; <span class="annotation">[&lt;f&gt;]</span>    = Print help <span class="keyword">for</span> one <span class="keyword">module</span> <span class="keyword">and</span> exit.
-  --help-<span class="keyword">module</span>-list <span class="annotation">[&lt;f&gt;]</span>     = List modules <span class="keyword">with</span> help available <span class="keyword">and</span> exit.
-  --help-modules <span class="annotation">[&lt;f&gt;]</span>         = Print cmake-modules manual <span class="keyword">and</span> exit.
-  --help-policy &lt;cmp&gt; <span class="annotation">[&lt;f&gt;]</span>    = Print help <span class="keyword">for</span> one policy <span class="keyword">and</span> exit.
-  --help-policy-list <span class="annotation">[&lt;f&gt;]</span>     = List policies <span class="keyword">with</span> help available <span class="keyword">and</span> exit.
-  --help-policies <span class="annotation">[&lt;f&gt;]</span>        = Print cmake-policies manual <span class="keyword">and</span> exit.
-  --help-property &lt;prop&gt; <span class="annotation">[&lt;f&gt;]</span> = Print help <span class="keyword">for</span> one property <span class="keyword">and</span> exit.
-  --help-property-list <span class="annotation">[&lt;f&gt;]</span>   = List properties <span class="keyword">with</span> help available <span class="keyword">and</span>
-                                 exit.
-  --help-properties <span class="annotation">[&lt;f&gt;]</span>      = Print cmake-properties manual <span class="keyword">and</span> exit.
-  --help-variable var <span class="annotation">[&lt;f&gt;]</span>    = Print help <span class="keyword">for</span> one variable <span class="keyword">and</span> exit.
-  --help-variable-list <span class="annotation">[&lt;f&gt;]</span>   = List variables <span class="keyword">with</span> help available <span class="keyword">and</span> exit.
-  --help-variables <span class="annotation">[&lt;f&gt;]</span>       = Print cmake-variables manual <span class="keyword">and</span> exit.
-
-Generators
-
-The following generators are available on this platform:
-  Unix Makefiles               = Generates standard UNIX makefiles.
-  Ninja                        = Generates build.ninja files.
-  Watcom WMake                 = Generates Watcom WMake makefiles.
-  CodeBlocks - Ninja           = Generates CodeBlocks project files.
-  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
-  CodeLite - Ninja             = Generates CodeLite project files.
-  CodeLite - Unix Makefiles    = Generates CodeLite project files.
-  Eclipse CDT4 - Ninja         = Generates Eclipse CDT <span class="number">4.0</span> project files.
-  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT <span class="number">4.0</span> project files.
-  KDevelop3                    = Generates KDevelop <span class="number">3</span> project files.
-  KDevelop3 - Unix Makefiles   = Generates KDevelop <span class="number">3</span> project files.
-  Kate - Ninja                 = Generates Kate project files.
-  Kate - Unix Makefiles        = Generates Kate project files.
-  Sublime Text <span class="number">2</span> - Ninja       = Generates Sublime Text <span class="number">2</span> project files.
-  Sublime Text <span class="number">2</span> - Unix Makefiles
-                               = Generates Sublime Text <span class="number">2</span> project files.
-</code></pre>
+        <p>之前编译了一个ettercap程序，但是在运行的过程中经常会莫名奇妙的退出，并提示开启DEBUG模式进行排错。随后仔细看了一下版本后决定将ettercap升级到最新的版本0.8.2，并且不启用GTK的图形界面。<br>
         
         
         <p class="article-more-link">
+          
+            <a href="/blog/2016/03/21/20160321/#more">Read More</a>
           
        </p>
     </div>
