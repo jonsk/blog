@@ -5,7 +5,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2016-03-21T06:20:51.000Z</updated>
+  <updated>2016-03-21T06:34:23.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[ettercap 编译指南]]></title>
+    <title><![CDATA[ettercap 编译禁用GTK]]></title>
     <link href="http://jonsk.github.io/blog/blog/2016/03/21/20160321/"/>
     <id>http://jonsk.github.io/blog/blog/2016/03/21/20160321/</id>
     <published>2016-03-21T06:17:43.000Z</published>
-    <updated>2016-03-21T06:20:51.000Z</updated>
+    <updated>2016-03-21T06:34:23.000Z</updated>
     <content type="html"><![CDATA[<p>之前编译了一个ettercap程序，但是在运行的过程中经常会莫名奇妙的退出，并提示开启DEBUG模式进行排错。随后仔细看了一下版本后决定将ettercap升级到最新的版本0.8.2，并且不启用GTK的图形界面。<br><a id="more"></a></p>
 <p><strong>ettercap</strong>在编译时会默认会启用图形界面的支持，而图型界面则是通过GTK2来支持，如果安装了GTK2但是没有设置<em>GTK_BUILD_TYP</em>则会以cmake时提示：</p>
 <pre><code>-<span class="ruby">- <span class="constant">No</span> <span class="constant">GTK_BUILD_TYPE</span> <span class="keyword">defined</span>, default is <span class="constant">GTK2</span>
