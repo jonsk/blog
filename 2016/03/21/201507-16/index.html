@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>新开始 | 动力火锅的猫空间</title>
+    <title>201507-16 | 动力火锅的猫空间</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="动力火锅">
     
 
     
-    <meta name="description" content="第一篇博客记录，先留个抓印。">
+    <meta name="description" content="机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新开始">
-<meta property="og:url" content="http://jonsk.github.io/blog/2015/07/15/新开始/index.html">
+<meta property="og:title" content="201507-16">
+<meta property="og:url" content="http://jonsk.github.io/blog/2016/03/21/201507-16/index.html">
 <meta property="og:site_name" content="动力火锅的猫空间">
-<meta property="og:description" content="第一篇博客记录，先留个抓印。">
-<meta property="og:updated_time" content="2015-07-16T02:15:12.000Z">
+<meta property="og:description" content="机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。">
+<meta property="og:updated_time" content="2016-03-21T06:23:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新开始">
-<meta name="twitter:description" content="第一篇博客记录，先留个抓印。">
+<meta name="twitter:title" content="201507-16">
+<meta name="twitter:description" content="机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。">
 
     
     <link rel="alternative" href="/blog/atom.xml" title="动力火锅的猫空间" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/blog/2015/07/15/新开始/" title="新开始" itemprop="url">新开始</a>
+      <a href="/blog/2016/03/21/201507-16/" title="201507-16" itemprop="url">201507-16</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/blog/about" title="动力火锅" target="_blank" itemprop="author">动力火锅</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-15T09:28:02.000Z" itemprop="datePublished"> 发表于 2015-07-15</time>
+    <time datetime="2016-03-21T06:22:26.000Z" itemprop="datePublished"> 发表于 2016-03-21</time>
     
   </p>
 </header>
@@ -96,11 +96,51 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ngaios安装指南"><span class="toc-number">1.</span> <span class="toc-text">Ngaios安装指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00_关于Nagios"><span class="toc-number">1.1.</span> <span class="toc-text">0x00 关于Nagios</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01_准备工作"><span class="toc-number">1.2.</span> <span class="toc-text">0x01 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02_开始安装"><span class="toc-number">1.3.</span> <span class="toc-text">0x02 开始安装</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>第一篇博客记录，先留个抓印。</p>
+		<p>机房的监控一直以来都是一件较为重要的事，在公司搬到武汉后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br><a id="more"></a></p>
+<h1 id="Ngaios安装指南">Ngaios安装指南</h1><h2 id="0x00_关于Nagios">0x00 关于Nagios</h2><p>Nagios是一款开源的免费网络监视工具，通过它可以对操作系统、交换机、路由器、打印机等设备进行监控，并在出现问题时通过页面展式出来或是通知短信和邮件来用户用。</p>
+<p>Nagios 可以监控的功能有：</p>
+<ul>
+<li>监控网络服务（SMTP、POP3、HTTP、NNTP、PING等）；</li>
+<li>监控主机资源（处理器负荷、磁盘利用率等）；</li>
+<li>监控打印机的使用情况；</li>
+<li>可以通过WEB界面用于查看当前的网络状态、通知和故障历史、日志文件等；</li>
+</ul>
+<p>我这里就写了些常用的，其它还有其它功能，有兴趣可以去它的<a href="https://www.nagios.org/" target="_blank" rel="external">网站</a>上看看</p>
+<h2 id="0x01_准备工作">0x01 准备工作</h2><p>Nagios的安装需要编译环境、WEB服务器以及一些关系库，如libgd2-xpm-dev等。</p>
+<pre><code># apt-<span class="built_in">get</span> install apache libgd2-xpm-<span class="built_in">dev</span> build-essential
+</code></pre><p>随后下载Nagios的源代码以及它的插件。</p>
+<pre><code><span class="preprocessor"># wget https:<span class="comment">//assets.nagios.com/downloads/nagioscore/releases/nagios-4.1.0rc2.tar.gz</span></span>
+<span class="preprocessor"># wget wget http:<span class="comment">//nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz</span></span>
+</code></pre><p>建立Nagios的使用帐号和组</p>
+<pre><code><span class="preprocessor"># useradd -m nagios</span>
+<span class="preprocessor"># passwd nagios</span>
+<span class="preprocessor"># groupadd nagcmd</span>
+<span class="preprocessor"># usermod -a -G nagcmd nagios</span>
+<span class="preprocessor"># usermod -a -G nagcmd www-data</span>
+</code></pre><h2 id="0x02_开始安装">0x02 开始安装</h2><p>首先解压源代码，并进入到源码目录中：</p>
+<pre><code><span class="preprocessor"># tar xzf nagios-4.1.0rc2.tar.gz</span>
+<span class="preprocessor"># cd nagios-4.1.0rc2/</span>
+</code></pre><p>配置Nagios，通过—with-command-group参数来指定Nagios运行时所使用的组，另外我通常还会通过—prefix参数来指定安装目录。</p>
+<pre><code><span class="comment">#</span> <span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">command</span><span class="literal">-</span><span class="comment">group=nagcmd</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/usr/local/Nagios</span>
+</code></pre><p>开始编译吧。</p>
+<pre><code><span class="preprocessor"># make all</span>
+</code></pre><p>安装。</p>
+<pre><code><span class="preprocessor"># make install</span>
+<span class="preprocessor"># make install-init</span>
+<span class="preprocessor"># make install-config</span>
+<span class="preprocessor"># make install-commandmode</span>
+<span class="preprocessor"># make install-webconf</span>
+</code></pre><p>安装Nagios的Apache配置文件。</p>
+<pre><code># <span class="regexp">/usr/</span>bin<span class="regexp">/install -c -m 644 sample-config/</span>httpd.conf <span class="regexp">/etc/</span>apache2<span class="regexp">/sites-enabled/</span>nagios.conf
+</code></pre><p>设置nagiosadmin帐号的密码。</p>
+<pre><code># htpasswd -c <span class="regexp">/usr/</span>local<span class="regexp">/nagios/</span>etc<span class="regexp">/htpasswd.users nagiosadmin</span>
+</code></pre><p>重新启动Apache服务器,ubuntu可以通过server命令来重启动apache,但是我还是习惯直接使用脚本来操作。</p>
+<pre><code><span class="preprocessor"># /etc/init.d/apache2 restart</span>
+</code></pre><p>重启动之后就可以使用WEB页面来访问nagios了，默认的用户名和密码为之前设置的用户名和密码</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -113,7 +153,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://jonsk.github.io/blog/2015/07/15/新开始/" data-title="新开始 | 动力火锅的猫空间" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://jonsk.github.io/blog/2016/03/21/201507-16/" data-title="201507-16 | 动力火锅的猫空间" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -126,14 +166,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/blog/2015/07/16/20150716/" title="用Hexo在Github上建立博客">
-  <strong>上一篇：</strong><br/>
-  <span>
-  用Hexo在Github上建立博客</span>
+
+<div class="next">
+<a href="/blog/2016/03/21/20160321/"  title="ettercap 编译指南">
+ <strong>下一篇：</strong><br/> 
+ <span>ettercap 编译指南
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -145,7 +185,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ngaios安装指南"><span class="toc-number">1.</span> <span class="toc-text">Ngaios安装指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00_关于Nagios"><span class="toc-number">1.1.</span> <span class="toc-text">0x00 关于Nagios</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01_准备工作"><span class="toc-number">1.2.</span> <span class="toc-text">0x01 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02_开始安装"><span class="toc-number">1.3.</span> <span class="toc-text">0x02 开始安装</span></a></li></ol></li></ol>
  
   </div>
 
