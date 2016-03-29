@@ -5,7 +5,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://jonsk.github.io/blog/blog//"/>
-  <updated>2016-03-29T09:07:09.000Z</updated>
+  <updated>2016-03-29T09:23:28.000Z</updated>
   <id>http://jonsk.github.io/blog/blog//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jonsk.github.io/blog/blog/2016/03/29/20160329/"/>
     <id>http://jonsk.github.io/blog/blog/2016/03/29/20160329/</id>
     <published>2016-03-29T08:46:07.000Z</published>
-    <updated>2016-03-29T09:07:09.000Z</updated>
+    <updated>2016-03-29T09:23:28.000Z</updated>
     <content type="html"><![CDATA[<p>每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。<br><a id="more"></a></p>
 <h2 id="0x00_安装Php开发程序及编辑工具">0x00 安装Php开发程序及编辑工具</h2><p>安装开发环境，如果使用的Redhat需要使用yum来安装。</p>
 <pre><code># apt-<span class="preprocessor">get</span> install php5-dev <span class="keyword">build-essential </span>php-pear libaio1 unzip make
@@ -116,9 +116,10 @@ You should <span class="keyword">add</span> <span class="string">"extension=oci8
 </code></pre><p>然后重新启动apache。</p>
 <pre><code><span class="preprocessor"># /etc/init.d/apache2 restart </span>
 </code></pre><h2 id="0x04_测试oci支持">0x04 测试oci支持</h2><p>现在oci已经安装完成了，可以使用phpinfo()来测试一下了，如果出现以下内容则表示PHP已经支持Oracle了。</p>
-<p><a name="module_oci8">oci8</a></p>
-<table><br><tr><td>OCI8 Support </td><td>enabled </td></tr><br><tr><td>OCI8 DTrace Support </td><td>disabled </td></tr><br><tr><td>OCI8 Version </td><td>2.0.10 </td></tr><br><tr><td>Revision </td><td>$Id: f5a3ee1083d1ffa6adb5143efda6eafa210b8414 $ </td></tr><br><tr><td>Oracle Run-time Client Library Version </td><td>11.2.0.1.0 </td></tr><br><tr><td>Oracle Compile-time Instant Client Version </td><td>11.2 </td></tr><br></table>
+<p>oci8</p>
+<table class="table table-bordered table-striped table-condensed"><br><tr><td>OCI8 Support </td><td>enabled </td></tr><br><tr><td>OCI8 DTrace Support </td><td>disabled </td></tr><br><tr><td>OCI8 Version </td><td>2.0.10 </td></tr><br><tr><td>Revision </td><td>$Id: f5a3ee1083d1ffa6adb5143efda6eafa210b8414 $ </td></tr><br><tr><td>Oracle Run-time Client Library Version </td><td>11.2.0.1.0 </td></tr><br><tr><td>Oracle Compile-time Instant Client Version </td><td>11.2 </td></tr><br></table>
 
+<p>| OCI8 Support | enabled |<br>|OCI8 DTrace Support| disabled |<br>|OCI8 Version| 2.0.10 |<br>|Revision| $Id: f5a3ee1083d1ffa6adb5143efda6eafa210b8414 $ |<br>|Oracle Run-time Client Library Version| 11.2.0.1.0 |<br>|Oracle Compile-time Instant Client Version| 11.2 |</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。<br>]]>
