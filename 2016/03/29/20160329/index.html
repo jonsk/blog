@@ -11,22 +11,16 @@
     
 
     
-    <meta name="description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。
-0x00 安装Php开发程序及编辑工具安装开发环境，如果使用的Redhat需要使用yum来安装。
-# apt-get insta">
+    <meta name="description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache+Php+Oracle环境设置">
 <meta property="og:url" content="http://jonsk.github.io/blog/2016/03/29/20160329/index.html">
 <meta property="og:site_name" content="动力火锅的猫空间">
-<meta property="og:description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。
-0x00 安装Php开发程序及编辑工具安装开发环境，如果使用的Redhat需要使用yum来安装。
-# apt-get insta">
-<meta property="og:updated_time" content="2016-03-29T08:49:12.000Z">
+<meta property="og:description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。">
+<meta property="og:updated_time" content="2016-03-29T09:04:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache+Php+Oracle环境设置">
-<meta name="twitter:description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。
-0x00 安装Php开发程序及编辑工具安装开发环境，如果使用的Redhat需要使用yum来安装。
-# apt-get insta">
+<meta name="twitter:description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。">
 
     
     <link rel="alternative" href="/blog/atom.xml" title="动力火锅的猫空间" type="application/atom+xml">
@@ -106,7 +100,7 @@
 		
 		</div>
 		
-		<p>每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。</p>
+		<p>每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。<br><a id="more"></a></p>
 <h2 id="0x00_安装Php开发程序及编辑工具">0x00 安装Php开发程序及编辑工具</h2><p>安装开发环境，如果使用的Redhat需要使用yum来安装。</p>
 <pre><code># apt-<span class="preprocessor">get</span> install php5-dev <span class="keyword">build-essential </span>php-pear libaio1 unzip make
 </code></pre><h2 id="0x01_下载Oracle的客户端及开发包">0x01 下载Oracle的客户端及开发包</h2><p>PHP通常是不带oracle数据库管理扩展，因此我们需要自行下载并且编译安装和配置，用户可以在Oracle的官方网站上下载instantclient basic和instantclient sdk安装包。</p>

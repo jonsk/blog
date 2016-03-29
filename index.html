@@ -94,108 +94,12 @@
 </header>
     <div class="article-content">
         
-        <p>每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。</p>
-<h2 id="0x00_安装Php开发程序及编辑工具">0x00 安装Php开发程序及编辑工具</h2><p>安装开发环境，如果使用的Redhat需要使用yum来安装。</p>
-<pre><code># apt-<span class="preprocessor">get</span> install php5-dev <span class="keyword">build-essential </span>php-pear libaio1 unzip make
-</code></pre><h2 id="0x01_下载Oracle的客户端及开发包">0x01 下载Oracle的客户端及开发包</h2><p>PHP通常是不带oracle数据库管理扩展，因此我们需要自行下载并且编译安装和配置，用户可以在Oracle的官方网站上下载instantclient basic和instantclient sdk安装包。</p>
-<blockquote>
-<p><a href="http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html" target="_blank" rel="external">http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html</a></p>
-</blockquote>
-<p>根据自己服务器上的Oracle版本下载相对应的instantclient basic和instantclient sdk安装包，并解压到相应的目录中。</p>
-<pre><code># unzip oracle-instantclient11.2-basic-11.2.0.1.0-1.x86_64.<span class="keyword">zip</span>
-Archive:  oracle-instantclient11.2-basic-11.2.0.1.0-1.x86_64.<span class="keyword">zip</span>
-  inflating: instantclient_11_2/BASIC_README
-  inflating: instantclient_11_2/adrci
-  inflating: instantclient_11_2/genezi
-  inflating: instantclient_11_2/libclntsh.<span class="keyword">so</span>.11.1
-  inflating: instantclient_11_2/libnnz11.<span class="keyword">so</span>
-  inflating: instantclient_11_2/libocci.<span class="keyword">so</span>.11.1
-  inflating: instantclient_11_2/libociei.<span class="keyword">so</span>
-  inflating: instantclient_11_2/libocijdbc11.<span class="keyword">so</span>
-  inflating: instantclient_11_2/ojdbc5.jar
-  inflating: instantclient_11_2/ojdbc6.jar
-  inflating: instantclient_11_2/xstreams.jar
-
-# unzip oracle-instantclient11.2-sdk-11.2.0.1.0-1.x86_64.<span class="keyword">zip</span>
-Archive:  oracle-instantclient11.2-sdk-11.2.0.1.0-1.x86_64.<span class="keyword">zip</span>
-   creating: instantclient_11_2/sdk/
-   creating: instantclient_11_2/sdk/<span class="keyword">include</span>/
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/occi.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/occiCommon.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/occiControl.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/occiData.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/occiObjects.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/occiAQ.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/oci.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/oci1.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/oci8dp.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ociap.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ociapr.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ocidef.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ocidem.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ocidfn.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ociextp.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ocikpr.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ocixmldb.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ocixstream.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/odci.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/oratypes.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ori.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/orid.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/orl.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/oro.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ort.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/xa.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/nzt.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/nzerror.<span class="literal">h</span>
-  inflating: instantclient_11_2/sdk/<span class="keyword">include</span>/ldap.<span class="literal">h</span>
-   creating: instantclient_11_2/sdk/demo/
-  inflating: instantclient_11_2/sdk/demo/demo.mk
-  inflating: instantclient_11_2/sdk/demo/cdemo81.c
-  inflating: instantclient_11_2/sdk/demo/occidemo.sql
-  inflating: instantclient_11_2/sdk/demo/occidemod.sql
-  inflating: instantclient_11_2/sdk/demo/occidml.cpp
-  inflating: instantclient_11_2/sdk/demo/occiobj.cpp
-  inflating: instantclient_11_2/sdk/demo/occiobj.<span class="keyword">typ</span>
-  inflating: instantclient_11_2/sdk/SDK_README
- extracting: instantclient_11_2/sdk/ottclasses.<span class="keyword">zip</span>
-  inflating: instantclient_11_2/sdk/ott
-</code></pre><p>在解压后生成的目录中建立库文件的软连接，并移动到/usr/local/lib目录中：</p>
-<pre><code><span class="comment"># cd instantclient_11_2</span>
-<span class="comment"># ln -s libnnz11.so libnnz.so</span>
-<span class="comment"># ln -s libclntsh.so.11.1 libclntsh.so</span>
-<span class="comment"># ln -s libocci.so.11.1 libocci.so</span>
-<span class="comment"># cd .. &amp;&amp; mv instantclient_11_2 /usr/local/lib/</span>
-<span class="comment"># chmod 777 -R /usr/local/lib/instantclient/</span>
-</code></pre><p>设置系统环境变量，保证在编辑时能找到instantclient的目录。</p>
-<pre><code><span class="id">#vim</span> /etc/environment
-</code></pre><p>在environment文件的最后面增加以下内容：</p>
-<blockquote>
-<p>#Oracle Instant Client<br>LD_LIBRARY_PATH=”/usr/local/lib/instantclient”<br>TNS_ADMIN=”/usr/local/lib/instantclient”<br>ORACLE_BASE=”/usr/local/lib/instantclient”<br>ORACLE_HOME=$ORACLE_BASE</p>
-</blockquote>
-<p>现在，可以使用pecl来安装oci8了，如果php是7.0或以上版本则要使用oci8-2.0.10</p>
-<pre><code># <span class="tag">pecl</span> <span class="tag">install</span> <span class="tag">oci8-2</span><span class="class">.0</span><span class="class">.10</span>
-</code></pre><p>安装的过程中会自动下载oci8的代码并进行编译，在编译的过程中会提示输入instantclient的相关路径变量：</p>
-<p>最终终的编译完成信息如下：</p>
-<pre><code>Build process completed successfully
-Installing '/usr/lib/php5/20121212/oci8.so'
-<span class="operator"><span class="keyword">install</span> ok: channel://pecl.php.net/oci8-<span class="number">2.0</span>.8
-configuration <span class="keyword">option</span> <span class="string">"php_ini"</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span> <span class="keyword">to</span> php.ini location
-You should <span class="keyword">add</span> <span class="string">"extension=oci8.so"</span> <span class="keyword">to</span> php.ini</span>
-</code></pre><h2 id="0x03_配置oci8">0x03 配置oci8</h2><p>按照上面的提示在php.ini中直接开启extension，不过因为apache的PHP配置是单独的，因此我们需要修改apache的配置文件，如果是lighttpd则要改相应的配置文件。</p>
-<pre><code># vi <span class="regexp">/etc/</span>php5<span class="regexp">/apache2/</span>conf.d<span class="regexp">/oci8.ini</span>
-</code></pre><p>增加以下内容：</p>
-<pre><code>extension=oci8<span class="class">.so</span>    
-</code></pre><p>然后重新启动apache。</p>
-<pre><code><span class="preprocessor"># /etc/init.d/apache2 restart </span>
-</code></pre><h2 id="0x04_测试oci支持">0x04 测试oci支持</h2><p>现在oci已经安装完成了，可以使用phpinfo()来测试一下了，如果出现以下内容则表示PHP已经支持Oracle了。</p>
-<p></p><h2><a name="module_oci8">oci8</a></h2><p></p>
-<table><br><tr><td class="e">OCI8 Support </td><td class="v">enabled </td></tr><br><tr><td class="e">OCI8 DTrace Support </td><td class="v">disabled </td></tr><br><tr><td class="e">OCI8 Version </td><td class="v">2.0.10 </td></tr><br><tr><td class="e">Revision </td><td class="v">$Id: f5a3ee1083d1ffa6adb5143efda6eafa210b8414 $ </td></tr><br><tr><td class="e">Oracle Run-time Client Library Version </td><td class="v">11.2.0.1.0 </td></tr><br><tr><td class="e">Oracle Compile-time Instant Client Version </td><td class="v">11.2 </td></tr><br></table>
-
-
+        <p>每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。<br>
         
         
         <p class="article-more-link">
+          
+            <a href="/blog/2016/03/29/20160329/#more">Read More</a>
           
        </p>
     </div>
