@@ -4,22 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>动力火锅的猫空间</title>
+    <title>Apache+Php+Oracle环境设置 | 动力火锅的猫空间</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="动力火锅">
     
 
     
-    <meta name="description" content="java | hexo | javascript | OA | python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="动力火锅的猫空间">
-<meta property="og:url" content="http://jonsk.github.io/blog/index.html">
+    <meta name="description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。
+0x00 安装Php开发程序及编辑工具安装开发环境，如果使用的Redhat需要使用yum来安装。
+# apt-get insta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache+Php+Oracle环境设置">
+<meta property="og:url" content="http://jonsk.github.io/blog/2016/03/29/20160329/index.html">
 <meta property="og:site_name" content="动力火锅的猫空间">
-<meta property="og:description" content="java | hexo | javascript | OA | python">
+<meta property="og:description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。
+0x00 安装Php开发程序及编辑工具安装开发环境，如果使用的Redhat需要使用yum来安装。
+# apt-get insta">
+<meta property="og:updated_time" content="2016-03-29T08:49:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动力火锅的猫空间">
-<meta name="twitter:description" content="java | hexo | javascript | OA | python">
+<meta name="twitter:title" content="Apache+Php+Oracle环境设置">
+<meta name="twitter:description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。
+0x00 安装Php开发程序及编辑工具安装开发环境，如果使用的Redhat需要使用yum来安装。
+# apt-get insta">
 
     
     <link rel="alternative" href="/blog/atom.xml" title="动力火锅的猫空间" type="application/atom+xml">
@@ -73,12 +80,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/blog/2016/03/29/20160329/" title="Apache+Php+Oracle环境设置" itemprop="url">Apache+Php+Oracle环境设置</a>
@@ -92,9 +97,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00_安装Php开发程序及编辑工具"><span class="toc-number">1.</span> <span class="toc-text">0x00 安装Php开发程序及编辑工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01_下载Oracle的客户端及开发包"><span class="toc-number">2.</span> <span class="toc-text">0x01 下载Oracle的客户端及开发包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03_配置oci8"><span class="toc-number">3.</span> <span class="toc-text">0x03 配置oci8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04_测试oci支持"><span class="toc-number">4.</span> <span class="toc-text">0x04 测试oci支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">oci8</span></a></li></ol>
+		
+		</div>
+		
+		<p>每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。</p>
 <h2 id="0x00_安装Php开发程序及编辑工具">0x00 安装Php开发程序及编辑工具</h2><p>安装开发环境，如果使用的Redhat需要使用yum来安装。</p>
 <pre><code># apt-<span class="preprocessor">get</span> install php5-dev <span class="keyword">build-essential </span>php-pear libaio1 unzip make
 </code></pre><h2 id="0x01_下载Oracle的客户端及开发包">0x01 下载Oracle的客户端及开发包</h2><p>PHP通常是不带oracle数据库管理扩展，因此我们需要自行下载并且编译安装和配置，用户可以在Oracle的官方网站上下载instantclient basic和instantclient sdk安装包。</p>
@@ -192,14 +204,9 @@ You should <span class="keyword">add</span> <span class="string">"extension=oci8
 <p></p><h2><a name="module_oci8">oci8</a></h2><p></p>
 <table><br><tr><td class="e">OCI8 Support </td><td class="v">enabled </td></tr><br><tr><td class="e">OCI8 DTrace Support </td><td class="v">disabled </td></tr><br><tr><td class="e">OCI8 Version </td><td class="v">2.0.10 </td></tr><br><tr><td class="e">Revision </td><td class="v">$Id: f5a3ee1083d1ffa6adb5143efda6eafa210b8414 $ </td></tr><br><tr><td class="e">Oracle Run-time Client Library Version </td><td class="v">11.2.0.1.0 </td></tr><br><tr><td class="e">Oracle Compile-time Instant Client Version </td><td class="v">11.2 </td></tr><br></table>
 
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -207,278 +214,43 @@ You should <span class="keyword">add</span> <span class="string">"extension=oci8
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://jonsk.github.io/blog/2016/03/29/20160329/" data-title="Apache+Php+Oracle环境设置 | 动力火锅的猫空间" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/blog/2016/03/21/20160321/" title="ettercap 编译禁用GTK" itemprop="url">ettercap 编译禁用GTK</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/blog/about" title="动力火锅" target="_blank" itemprop="author">动力火锅</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-21T06:17:43.000Z" itemprop="datePublished"> 发表于 2016-03-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>之前编译了一个ettercap程序，但是在运行的过程中经常会莫名奇妙的退出，并提示开启DEBUG模式进行排错。随后仔细看了一下版本后决定将ettercap升级到最新的版本0.8.2，并且不启用GTK的图形界面。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/blog/2016/03/21/20160321/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/blog/2016/03/21/20160321/"  title="ettercap 编译禁用GTK">
+ <strong>下一篇：</strong><br/> 
+ <span>ettercap 编译禁用GTK
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/blog/2015/10/09/20151009/" title="定制Debian版的树莓派系统" itemprop="url">定制Debian版的树莓派系统</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/blog/about" title="动力火锅" target="_blank" itemprop="author">动力火锅</a>
-		
-  <p class="article-time">
-    <time datetime="2015-10-09T04:02:30.000Z" itemprop="datePublished"> 发表于 2015-10-09</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>在树莓派的<a href="https://www.raspberrypi.org">官方网站上</a>提供了多个的系统镜像，但是这些镜像都有一个共同点，哪就是安装了一些用户并不需要的程序，而这些程序占用了大量的空间，为了节省出更多的空间，所以我才需要重头定制树莓派的系统。由于我经常使用的系统是Debian所以定制也是基于Debian。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/blog/2015/10/09/20151009/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/blog/2015/09/16/20150916/" title="Ngaios安装指南" itemprop="url">Ngaios安装指南</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/blog/about" title="动力火锅" target="_blank" itemprop="author">动力火锅</a>
-		
-  <p class="article-time">
-    <time datetime="2015-09-16T06:22:26.000Z" itemprop="datePublished"> 发表于 2015-09-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>机房的监控一直以来都是一件较为重要的事，在公司搬家后一直没有部署监控系统，结果当需要查看监控数据时慌了手脚，只好马上搭建一套。顺便记录了一下安装过程。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/blog/2015/09/16/20150916/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/blog/2015/07/16/20150716/" title="用Hexo在Github上建立博客" itemprop="url">用Hexo在Github上建立博客</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/blog/about" title="动力火锅" target="_blank" itemprop="author">动力火锅</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-16T02:42:48.000Z" itemprop="datePublished"> 发表于 2015-07-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>花了差不多快一个星期的时间才在github上建立起自己的博客，所以在这里记录下来，一些基础知识就省了，写的比较简单，不过建立过程的经验和关键操作的记录都有写下来。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/blog/2015/07/16/20150716/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/blog/2015/07/15/新开始/" title="新开始" itemprop="url">新开始</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/blog/about" title="动力火锅" target="_blank" itemprop="author">动力火锅</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-15T09:28:02.000Z" itemprop="datePublished"> 发表于 2015-07-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>第一篇博客记录，先留个抓印。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00_安装Php开发程序及编辑工具"><span class="toc-number">1.</span> <span class="toc-text">0x00 安装Php开发程序及编辑工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01_下载Oracle的客户端及开发包"><span class="toc-number">2.</span> <span class="toc-text">0x01 下载Oracle的客户端及开发包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03_配置oci8"><span class="toc-number">3.</span> <span class="toc-text">0x03 配置oci8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04_测试oci支持"><span class="toc-number">4.</span> <span class="toc-text">0x04 测试oci支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">oci8</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -590,12 +362,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -656,4 +505,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
