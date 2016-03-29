@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://jonsk.github.io/blog/2016/03/29/20160329/index.html">
 <meta property="og:site_name" content="动力火锅的猫空间">
 <meta property="og:description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。">
-<meta property="og:updated_time" content="2016-03-29T09:23:28.000Z">
+<meta property="og:updated_time" content="2016-03-29T09:27:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache+Php+Oracle环境设置">
 <meta name="twitter:description" content="每个月对Oracle数据库进行检查时都需要输入一大堆的Sql语句，而这些语句每个月都要输入一次，实在是太麻烦了，因此用php写了一个页面，专门用来查询Oracle数据库的一些常用信息。不过由于是远程使用Php，因此需要对开发主机进行设置，以使得Php能支持Oracle。">
@@ -194,11 +194,8 @@ You should <span class="keyword">add</span> <span class="string">"extension=oci8
 <pre><code>extension=oci8<span class="class">.so</span>    
 </code></pre><p>然后重新启动apache。</p>
 <pre><code><span class="preprocessor"># /etc/init.d/apache2 restart </span>
-</code></pre><h2 id="0x04_测试oci支持">0x04 测试oci支持</h2><p>现在oci已经安装完成了，可以使用phpinfo()来测试一下了，如果出现以下内容则表示PHP已经支持Oracle了。</p>
-<p>oci8</p>
-<table class="table table-bordered table-striped table-condensed"><br><tr><td>OCI8 Support </td><td>enabled </td></tr><br><tr><td>OCI8 DTrace Support </td><td>disabled </td></tr><br><tr><td>OCI8 Version </td><td>2.0.10 </td></tr><br><tr><td>Revision </td><td>$Id: f5a3ee1083d1ffa6adb5143efda6eafa210b8414 $ </td></tr><br><tr><td>Oracle Run-time Client Library Version </td><td>11.2.0.1.0 </td></tr><br><tr><td>Oracle Compile-time Instant Client Version </td><td>11.2 </td></tr><br></table>
-
-<p>| OCI8 Support | enabled |<br>|OCI8 DTrace Support| disabled |<br>|OCI8 Version| 2.0.10 |<br>|Revision| $Id: f5a3ee1083d1ffa6adb5143efda6eafa210b8414 $ |<br>|Oracle Run-time Client Library Version| 11.2.0.1.0 |<br>|Oracle Compile-time Instant Client Version| 11.2 |</p>
+</code></pre><h2 id="0x04_测试oci支持">0x04 测试oci支持</h2><p>现在oci已经安装完成了，可以使用phpinfo()来测试一下了，如果出现以下内容则表示PHP已经支持Oracle了。<br>OCI8</p>
+<tr><td>OCI8 Support </td><td>enabled </td></tr><br><tr><td>OCI8 DTrace Support </td><td>disabled </td></tr><br><tr><td>OCI8 Version </td><td>2.0.10 </td></tr><br><tr><td>Revision </td><td>$Id: f5a3ee1083d1ffa6adb5143efda6eafa210b8414 $ </td></tr><br><tr><td>Oracle Run-time Client Library Version </td><td>11.2.0.1.0 </td></tr><br><tr><td>Oracle Compile-time Instant Client Version </td><td>11.2 </td></tr>
   
 	</div>
 		<footer class="article-footer clearfix">
