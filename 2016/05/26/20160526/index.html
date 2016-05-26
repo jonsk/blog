@@ -1,0 +1,412 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>定制个人专属的Eclipse | 动力火锅的猫空间</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="动力火锅">
+    
+
+    
+    <meta name="description" content="实在是厌烦了eclipse每次启动的速度，虽然在配置中可以做一些如启动时加载的插件选择方面的优化，但是效果还是不太明显，而且对于从官网下栽下的一些版本中某些插件还不能卸载。因此最有效的精简eclipse的方式是使用eclipse的平台版本来自己定制一个eclipse。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="定制个人专属的Eclipse">
+<meta property="og:url" content="http://jonsk.github.io/blog/2016/05/26/20160526/index.html">
+<meta property="og:site_name" content="动力火锅的猫空间">
+<meta property="og:description" content="实在是厌烦了eclipse每次启动的速度，虽然在配置中可以做一些如启动时加载的插件选择方面的优化，但是效果还是不太明显，而且对于从官网下栽下的一些版本中某些插件还不能卸载。因此最有效的精简eclipse的方式是使用eclipse的平台版本来自己定制一个eclipse。">
+<meta property="og:updated_time" content="2016-05-26T01:07:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="定制个人专属的Eclipse">
+<meta name="twitter:description" content="实在是厌烦了eclipse每次启动的速度，虽然在配置中可以做一些如启动时加载的插件选择方面的优化，但是效果还是不太明显，而且对于从官网下栽下的一些版本中某些插件还不能卸载。因此最有效的精简eclipse的方式是使用eclipse的平台版本来自己定制一个eclipse。">
+
+    
+    <link rel="alternative" href="/blog/atom.xml" title="动力火锅的猫空间" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/blog/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/blog/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/blog/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/blog/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/blog/"><img src="/blog/img/logo.png" alt="动力火锅的猫空间" title="动力火锅的猫空间"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/blog/" title="动力火锅的猫空间">动力火锅的猫空间</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/blog/">Home</a></li>
+					
+						<li><a href="/blog/archives">Archives</a></li>
+					
+						<li><a href="/blog/atom.xml">Rss</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:jonsk.github.io/blog">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/blog/2016/05/26/20160526/" title="定制个人专属的Eclipse" itemprop="url">定制个人专属的Eclipse</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/blog/about" title="动力火锅" target="_blank" itemprop="author">动力火锅</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-26T00:44:22.000Z" itemprop="datePublished"> 发表于 2016-05-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>实在是厌烦了eclipse每次启动的速度，虽然在配置中可以做一些如启动时加载的插件选择方面的优化，但是效果还是不太明显，而且对于从官网下栽下的一些版本中某些插件还不能卸载。因此最有效的精简eclipse的方式是使用eclipse的平台版本来自己定制一个eclipse。<br><a id="more"></a></p>
+<p>eclipse新推出了一个eclipse的安装工具，在eclipse的网站上就可以<a href="http://www.eclipse.org/downloads/" title="Eclipse install" target="_blank" rel="external">下载</a>。</p>
+<p>选择一个合适你的版本，然后在Eclipse install的界面中选择高级后，就可以选择Eclipse的版本了，除了常见的J2EE、PHP、等版本之外还有一个Platform版本了。这就是Eclipse所推出的最精简版本，luna版本中的Platform只有80多MB，只包含一个Eclipse所运行时的最小环境，这也就是我们所需要下载的版本。</p>
+<p>当Platform下载完后，我们可以在Platform版本的基本上安装一些自己需要的工具:</p>
+<p>1、Eclipse软件市场。<br>这是Eclipse官方的软件市场，里面有大量的Eclipse插件。</p>
+<p>在help菜单中选择install new software后输入名称和地址：<a href="http://download.eclipse.org/mpc/luna，如果你的eclipse是luna哪么在连接后面就写上luna如果是其它版本，则换上相应的名字就行了。随后选择" target="_blank" rel="external">http://download.eclipse.org/mpc/luna，如果你的eclipse是luna哪么在连接后面就写上luna如果是其它版本，则换上相应的名字就行了。随后选择</a> EPP Marketplace Client后安装即可，安装完成后重新启动就可以在help菜单中选择Eclipse Marketplace市场来安装你所需要的插件了。</p>
+<p>2、语言包。<br>Eclipse其实是支持中文的，只是需要手动安装而已，用户可以到下面的网站下载语言包，或是直接在help菜单中选择install new software来在线安装。</p>
+<p>Eclipse语言包网站：<a href="http://www.eclipse.org/babel/downloads.php" target="_blank" rel="external">http://www.eclipse.org/babel/downloads.php</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://jonsk.github.io/blog/2016/05/26/20160526/" data-title="定制个人专属的Eclipse | 动力火锅的猫空间" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/blog/2016/03/29/20160329/"  title="Apache+Php+Oracle环境设置">
+ <strong>下一篇：</strong><br/> 
+ <span>Apache+Php+Oracle环境设置
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.wuyun.com" target="_blank" title="乌云">乌云</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/blog/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:jonsk.echo@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/blog/about" target="_blank" title="动力火锅">动力火锅</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/blog/js/jquery-2.0.3.min.js"></script>
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+	</div>
+	<script src="/blog/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
