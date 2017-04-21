@@ -94,92 +94,12 @@
 </header>
     <div class="article-content">
         
-        <a id="more"></a>
-<p>**家里的笔记本电脑操作系统换成Linux已经快一年了，感觉实在是太好用了，基本上各种软件都有解决方法，虽然不是很全，但是基本上可以满足日常的应用了，这里将整个安装所需要的软件包列一下，基本上实现一次安装所需要的全部软件。</p>
-<h3 id="Ubuntu16-04安装">Ubuntu16.04安装</h3><p>直接使用下面的命令来安装吧，除了常用的开发工具，编译器，还会安装一个可以满足使用的Xfce4桌面系统，</p>
-<pre><code>apt-get <span class="operator"><span class="keyword">install</span> ant apache2 bzip2 chromium-browser chromium-browser-l10n evince firefox firefox-locale-zh-hans filezilla fonts-wqy-microhei fonts-wqy-zenhei gimp ghex gnome-mplayer gzip mplayer mousepad mpv openjdk-<span class="number">8</span>-jdk openjdk-<span class="number">8</span>-jre openssh-client openssh-<span class="keyword">server</span> p7zip p7zip-<span class="keyword">full</span> p7zip-rar rar rdesktop remmina remmina-<span class="keyword">plugin</span>-rdp remmina-<span class="keyword">plugin</span>-telepathy remmina-<span class="keyword">plugin</span>-vnc rsync slim smplayer  thunar-archive-<span class="keyword">plugin</span> unrar unzip vim virtualbox wireshark zip alsa-utils audacious build-essential esound-common evince filezilla gpicview liferea network-manager network-manager-gnome openssh-<span class="keyword">server</span> sylpheed sylpheed-i18n thunar-archive-<span class="keyword">plugin</span> vlc mysql-workbench xfce4-<span class="keyword">power</span>-manager  xfwm4-themes owncloud-client-l10n wireless-tools file-roller  xubuntu-icon-theme   xfce4-terminal  alsa-source debconf-utils <span class="keyword">module</span>-assistant xfce4 owncloud-client alsa-base linux-sound-base libapache2-<span class="keyword">mod</span>-php7.0 make autoconf automake m4</span>
-</code></pre><h3 id="CentOS7安装">CentOS7安装</h3><p>CentOS的安装要麻烦点，因为需要安装扩展的源，这里启用了epel和nux源，基本上可以满足要求nux主要是使用里面的多媒体资源。yum-axelget则是yum的多线程下载扩展，可以使下载更快。至于软件包可以见说明。</p>
-<pre><code>yum <span class="operator"><span class="keyword">install</span> epel-<span class="keyword">release</span>
-rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-<span class="keyword">release</span>-<span class="number">0</span>-<span class="number">5.</span>el7.nux.noarch.rpm
-yum <span class="keyword">install</span> yum-axelget
-
-yum <span class="keyword">install</span> xfce4-<span class="keyword">session</span> xfce4-<span class="keyword">session</span>-<span class="keyword">engines</span> xfce4-settings xfce4-terminal xfce4-panel xfce4-appfinder thunar-volman thunar-archive-<span class="keyword">plugin</span>  xfce4-pulseaudio-<span class="keyword">plugin</span> xfce4-<span class="keyword">power</span>-manager xfconf xfdesktop xfwm4 wqy-microhei-fonts.noarch wqy-unibit-fonts.noarch wqy-zenhei-fonts.noarch cjkuni-ukai-fonts lightdm vim gvim firefox ibus-<span class="keyword">table</span>-chinese-wubi-haifeng.noarch libpinyin.x86_64 gnome-software.x86_64 owncloud-client.x86_64 vinagre evince p7zip unar nfs-utils inkscape gimp okular thunderbird java-<span class="number">1.8</span>.0-openjdk.x86_64 VirtualBox-<span class="number">5.1</span>.x86_64 steam wine mplayer vlc im-chooser *alsa* rdesktop remmina unrar unzip wireshark audacious  make autoconf automake m4 ark bc</span>
-</code></pre><h3 id="软件的软件介绍">软件的软件介绍</h3><p>ant java的构建工具</p>
-<p>apache2    传统的WEB服务器</p>
-<p>bzip2    解压缩软件</p>
-<p>chromium-browser        谷歌的浏览器</p>
-<p>chromium-browser-l10n    谷歌浏览器的多语言支持</p>
-<p>evince    gnome默认的文档查看工具</p>
-<p>firefox    浏览器</p>
-<p>firefox-locale-zh-hans    浏览器的中文支持</p>
-<p>filezilla    一个图形化的文件传输工具</p>
-<p>fonts-wqy-microhei    字体</p>
-<p>fonts-wqy-zenhei    字体</p>
-<p>gimp    一个图片编辑工具</p>
-<p>ghex    一个16进制的编辑器</p>
-<p>gnome-mplayer    gnome的播放器</p>
-<p>gzip    解压缩软件</p>
-<p>mplayer    播放器</p>
-<p>mousepad    Xfce默认的记事本</p>
-<p>mpv    播放器</p>
-<p>openjdk-8-jdk    </p>
-<p>openjdk-8-jre</p>
-<p>openssh-client</p>
-<p>openssh-server</p>
-<p>unrar    解压缩软件</p>
-<p>unzip</p>
-<p>zip</p>
-<p>p7zip</p>
-<p>p7zip-full</p>
-<p>p7zip-rar</p>
-<p>rar</p>
-<p>rdesktop    远程桌面的图形端</p>
-<p>remmina    远程桌面的图形端</p>
-<p>remmina-plugin-rdp 远程桌面的图形端的相关插件</p>
-<p>remmina-plugin-telepathy        远程桌面的图形端的相关插件</p>
-<p>remmina-plugin-vnc    远程桌面的图形端的相关插件</p>
-<p>rsync    同步工具</p>
-<p>slim    X窗口管理器</p>
-<p>smplayer    播放器</p>
-<p>audacious    播放器</p>
-<p>thunar-archive-plugin    解压缩软件的插件</p>
-<p>vim    文本编辑器</p>
-<p>virtualbox    虚拟机程序</p>
-<p>wireshark    抓包分析工具</p>
-<p>alsa-utils    声音相关的工具</p>
-<p>esound-common    声音相关的工具</p>
-<p>alsa-source        声音相关的工具</p>
-<p>linux-sound-base        声音相关的工具</p>
-<p>build-essential    开发工具集</p>
-<p>gpicview    图片查看工具</p>
-<p>liferea    rss新闻聚合阅读器</p>
-<p>network-manager    Xfce4的网络管理插件</p>
-<p>network-manager-gnome    Xfce4的网络管理插件</p>
-<p>openssh-server</p>
-<p>sylpheed    邮件收发工具</p>
-<p>sylpheed-i18n</p>
-<p>vlc    播放器</p>
-<p>mysql-workbench    mysql的客户端</p>
-<p>xfce4-power-manager    Xfce电源管理</p>
-<p>xfwm4-themes        Xfce主题</p>
-<p>owncloud-client-l10n        owncloud网盘客户端</p>
-<p>wireless-tools    抓包分析工具相关</p>
-<p>file-roller    文件管理器</p>
-<p>xubuntu-icon-theme    Xfce图标主题</p>
-<p>xfce4-terminal    Xfce终端</p>
-<p>debconf-utils    deb配置工具</p>
-<p>module-assistant        编译内核的相关工具</p>
-<p>xfce4    Xfce4桌面</p>
-<p>alsa-base    声音相关的工具</p>
-<p>libapache2-mod-php7.0    apache的php7模块</p>
-<p>make    编译工具</p>
-<p>autoconf    编译工具</p>
-<p>automake    编译工具</p>
-<p>m4    编译工具</p>
-
+        <p>**家里的笔记本电脑操作系统换成Linux已经快一年了，感觉实在是太好用了，基本上各种&gt;软件都有解决方法，虽然不是很全，但是基本上可以满足日常的应用了，这里将整个安装所<br>需要的软件包列一下，基本上实现一次安装所需要的全部软件。<br>
         
         
         <p class="article-more-link">
+          
+            <a href="/blog/2017/04/21/20170421/#more">Read More</a>
           
        </p>
     </div>
